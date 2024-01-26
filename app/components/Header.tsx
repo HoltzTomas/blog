@@ -6,7 +6,7 @@ export function Header() {
     return (
         <header className="px-[72px] h-[15vh] justify-between flex pt-[53px] items-center ">
             <HeaderLinks />
-            <div className="flex flex-row">
+            <div className="hidden md:flex flex-row">
                 <GitHubLogo />
                 <TwitterLogo />
                 <InstagramLogo />
