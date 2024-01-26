@@ -12,7 +12,7 @@ export function HeaderLinks() {
     const isBlogPage = pathname === '/blog';
 
     return (
-        <div className="flex flex-row justify-between w-[60%] items-center">
+        <div className="flex flex-row justify-between w-full md:w-[60%] items-center">
             <p className={`text-center text-[20px] font-bold ${NeueMachinaUltraBold.className}`}>TOMAS<br />HOLTZ</p>
             <Link href='/about' className={`${Ddin.className}`}>
                 <p className={`text-[18px] ${isAboutPage && 'underline'}`}>ABOUT ME</p>
