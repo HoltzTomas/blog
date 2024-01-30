@@ -13,7 +13,9 @@ export function HeaderLinks() {
 
     return (
         <div className="flex flex-row justify-between w-full md:w-[60%] items-center">
-            <p className={`text-center text-[20px] font-bold ${NeueMachinaUltraBold.className}`}>TOMAS<br />HOLTZ</p>
+            <Link href={'/'}>
+                <p className={`text-center text-[20px] font-bold ${NeueMachinaUltraBold.className}`}>TOMAS<br />HOLTZ</p>
+            </Link>
             <Link href='/about' className={`${Ddin.className}`}>
                 <p className={`text-[18px] ${isAboutPage && 'underline'}`}>ABOUT ME</p>
             </Link>

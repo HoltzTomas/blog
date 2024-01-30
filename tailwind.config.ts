@@ -11,6 +11,7 @@ const config: Config = {
       backgroundImage: {},
       colors: {
         "background": "#F5F5F5F5",
+        "blue" : "#4770FF",
       },
       maxWidth: {
         "8xl": "1440px",

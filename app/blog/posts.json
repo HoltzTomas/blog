@@ -1,0 +1,29 @@
+{
+    "posts": [
+        {
+            "id": "programar",
+            "title": "🧑🏻‍💻 Como aprender a programar en 2023",
+            "series": "programacion"
+        },
+        {
+            "id": "basq-tech",
+            "title": "🏀 Basq Tech: una idea y mi inicio en programación",
+            "series": "mi-camino-como-programador"
+        },
+        {
+            "id": "club-app",
+            "title": "🏟️ Una app para el club de mi barrio",
+            "series": "mi-camino-como-programador"
+        },
+        {
+            "id": "cdp-app",
+            "title": "🚜 CDP APP: Un breve paso por AgTech",
+            "series": "mi-camino-como-programador"
+        },
+        {
+            "id": "primer-trabajo",
+            "title": "🧑🏻‍💻 Como conseguí mi primer trabajo",
+            "series": "mi-camino-como-programador"
+        }
+    ]
+}
