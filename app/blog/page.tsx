@@ -1,17 +1,13 @@
 import Link from "next/link";
 import { NeueMachinaRegular, NeueMachinaUltraBold } from "../components/Fonts";
 
-import PostJson from './posts.json';
+import { Post, getPosts } from "../get-posts";
 
-interface Post {
-    title: string;
-    id: string;
-    series: string;
-}
+export const revalidate = 60;
 
-export default function BlogPage() {
+export default async function BlogPage() {
 
-    const posts = PostJson.posts;
+    const posts = await getPosts();
 
     const myPathPosts = posts.filter(post => post.series === 'mi-camino-como-programador');
 
@@ -33,7 +29,7 @@ export default function BlogPage() {
                         return (
                             <div key={post.id} className={`my-[5px] flex justify-between items-center ${NeueMachinaRegular.className}`}>
                                 <Link href={`/blog/${post.id}`} className={`py-[10px] hover:bg-[#eee] active:bg-[#ccc]`}>{post.title}</Link>
-                                <p>12,346</p>
+                                <p>{post.viewsFormatted ?? 0}</p>
                             </div>
                         )
                     })
@@ -48,7 +44,7 @@ export default function BlogPage() {
                         return (
                             <div key={post.id} className={`my-[5px] flex justify-between items-center ${NeueMachinaRegular.className}`}>
                                 <Link href={`/blog/${post.id}`} className={`py-[10px] hover:bg-[#eee] active:bg-[#ccc]`}>{post.title}</Link>
-                                <p>12,346</p>
+                                <p>{post.viewsFormatted}</p>
                             </div>
                         )
                     })

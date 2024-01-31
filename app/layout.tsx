@@ -34,7 +34,7 @@ export default function RootLayout({
     <html lang="es">
       <body className={`${inter.className} bg-background max-w-8xl min-h-screen`}>
         <Header />
-        <main className="p-6 pt-3 md:pt-6 min-h-[85vh] mt-[23.45px]">
+        <main className="p-6 pt-3 md:pt-6 min-h-[85vh]">
           {children}
         </main>
         <Footer />
