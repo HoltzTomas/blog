@@ -1,4 +1,3 @@
-import { NeueMachinaRegular, NeueMachinaUltraBold } from "@/app/components/Fonts";
 import { ArticleAnchor } from "../components/ArticleAnchor";
 
 export default function ProgramarPost() {
