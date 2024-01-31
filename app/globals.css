@@ -7,3 +7,82 @@
   color: CanvasText;
   background-color: Canvas;
 }
+
+code {
+  background-color: #eee;
+  border: 1px solid #999;
+  display: block;
+  padding: 20px;
+}
+
+span {
+  font-family: 'DdinBold';
+}
+
+blockquote {
+  margin: 30px 0;
+  color: #666;
+  font-style: oblique;
+  border-left: 8px solid#ccc;
+  padding-left: 20px;
+}
+
+strong {
+  text-decoration: underline;
+}
+
+.wrap {
+  margin-bottom: 25px;
+  padding: 15px;
+  background: #eee;
+  line-height: 20px;
+}
+
+.wrap_content {
+  display: inline;
+  font-style: italic;
+  color: black;
+}
+
+.blog-page p {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  font-family: 'NeueMachina';
+}
+
+.blog-page h1 {
+  margin-top: 23px;
+  margin-bottom: 23px;
+  font-family: 'NeueMachina-UltraBold';
+  font-size: 35px;
+  text-align: center;
+  color: #4770FF;
+}
+
+.blog-page h2 {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  font-size: 32px;
+  color: black;
+  font-family: 'NeueMachina-UltraBold';
+}
+
+@media (max-width: 768px) {
+  .blog-page h2 {
+    font-size: 24px;
+  }
+}
+
+@font-face {
+  font-family: 'NeueMachina';
+  src: url('../assets/fonts/neuemachina-regular-webfont.woff');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NeueMachina-UltraBold';
+  src: url('../assets/fonts/neuemachina-ultrabold-webfont.woff');
+  font-weight: 200;
+  font-style: normal;
+}

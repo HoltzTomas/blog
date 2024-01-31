@@ -19,7 +19,7 @@ export default function BlogPage() {
 
     return (
         <div className="w-full flex flex-col items-center min-h-[85vh] m-auto">
-            <p className={`${NeueMachinaUltraBold.className} text-center text-blue text-[30px] my-[23.45px]`}>Blog</p>
+            <p className={`${NeueMachinaUltraBold.className} text-center text-blue text-[30px] mb-[23.45px]`}>Blog</p>
 
             {/* My path */}
             <div className="flex flex-col max-w-2xl w-full">
