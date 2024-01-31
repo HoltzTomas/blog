@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArticleAnchor } from "../components/ArticleAnchor";
 
-export default function ProgramarPost() {
+export default function BasqTechPost() {
     return (
 
         <>
