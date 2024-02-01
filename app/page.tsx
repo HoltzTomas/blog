@@ -24,7 +24,7 @@ export default function Home() {
       {/* Aprende a programar */}
       <Link href={'/blog/programar'}>
         <p className={`underline text-blue text-[24px] mt-10 ${NeueMachinaUltraBold.className}`}>Como aprender a programar este 2023</p>
-        <p className={`md:w-[80%] lg:w-[50%] mb-10 mt-[10px] ${NeueMachinaUltraBold.className}`}>Paso a paso, como aprovechar el nuevo año para adiquirir la habilidad laboral mas demandada del mundo.</p>
+        <p className={`md:w-[80%] lg:w-[50%] mb-10 mt-[10px] ${NeueMachinaUltraBold.className}`}>Paso a paso, como aprovechar el nuevo año para adquirir la habilidad laboral mas demandada del mundo.</p>
       </Link>
     </div>
   );
