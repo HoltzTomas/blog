@@ -5,6 +5,26 @@ import Image from "next/image";
 import AprendizajeImage from'../../../../assets/aprendizaje.png'
 import CDPTuitImageDark from'../../../../assets/cdptuitdark.png'
 
+export const metadata = {
+    title: "🚜 CDP APP: Un breve paso por AgTech",
+    description:
+        "Este artículo es el tercero de la serie “Mi camino como programador” donde cuento todo lo que pasé (incluyendo enfáticamente los errores) desde mi primera línea de código hasta hoy.",
+    openGraph: {
+        title: "🚜 CDP APP: Un breve paso por AgTech",
+        description:
+            "Este artículo es el tercero de la serie “Mi camino como programador” donde cuento todo lo que pasé (incluyendo enfáticamente los errores) desde mi primera línea de código hasta hoy.",
+        url: "https://tomasholtz.com/blog/cdp-app",
+        siteName: "Tomas Holtzg's blog",
+        images: [{ url: 'https://res.cloudinary.com/di65i8wd3/image/upload/v1681140818/Blog_Club_App_akscbl.png' }],
+    },
+    twitter: {
+        card: "summary_large_image",
+        site: "https://tomasholtz.com/blog/cdp-app",
+        creator: "@tomasholtz_",
+    },
+    metadataBase: new URL("https://tomasholtz.com/blog/cdp-app"),
+};
+
 export default function CDPAPPPost() {
     return (
 

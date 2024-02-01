@@ -1,4 +1,25 @@
+import { Metadata } from "next";
 import { ArticleAnchor } from "../components/ArticleAnchor";
+
+export const metadata = {
+    title: "🧑🏻‍💻 Como aprender a programar en 2023",
+    description:
+        "Esto es un guía, paso a paso y tema por tema, para aprender a programar páginas web o aplicaciones móviles. Cada sección es un tema que tenés que aprender, con links a diferentes recursos, en el orden que tenés que aprenderlos.",
+    openGraph: {
+        title: "🧑🏻‍💻 Como aprender a programar en 2023",
+        description:
+            "Esto es un guía, paso a paso y tema por tema, para aprender a programar páginas web o aplicaciones móviles. Cada sección es un tema que tenés que aprender, con links a diferentes recursos, en el orden que tenés que aprenderlos.",
+        url: "https://tomasholtz.com/blog/programar",
+        siteName: "Tomas Holtzg's blog",
+        images: [{ url: 'https://res.cloudinary.com/di65i8wd3/image/upload/v1671924518/Disen%CC%83o_sin_ti%CC%81tulo_v0b2jc.png' }],
+    },
+    twitter: {
+        card: "summary_large_image",
+        site: "https://tomasholtz.com/blog/programar",
+        creator: "@tomasholtz_",
+    },
+    metadataBase: new URL("https://tomasholtz.com/blog/programar"),
+};
 
 export default function ProgramarPost() {
     return (

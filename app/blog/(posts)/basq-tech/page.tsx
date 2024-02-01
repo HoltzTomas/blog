@@ -1,6 +1,26 @@
 import Link from "next/link";
 import { ArticleAnchor } from "../components/ArticleAnchor";
 
+export const metadata = {
+    title: "🏀 Basq Tech: una idea y mi inicio en programación",
+    description:
+        "Este artículo es el primero de la serie “Mi camino como programador” donde cuento todo lo que pasé (incluyendo enfáticamente los errores) desde mi primera línea de código hasta hoy.",
+    openGraph: {
+        title: "🏀 Basq Tech: una idea y mi inicio en programación",
+        description:
+            "Este artículo es el primero de la serie “Mi camino como programador” donde cuento todo lo que pasé (incluyendo enfáticamente los errores) desde mi primera línea de código hasta hoy.",
+        url: "https://tomasholtz.com/blog/basq-tech",
+        siteName: "Tomas Holtzg's blog",
+        images: [{ url: 'https://res.cloudinary.com/di65i8wd3/image/upload/v1675032932/Blog_Basq_yhxh0y.png' }],
+    },
+    twitter: {
+        card: "summary_large_image",
+        site: "https://tomasholtz.com/blog/basq-tech",
+        creator: "@tomasholtz_",
+    },
+    metadataBase: new URL("https://tomasholtz.com/blog/basq-tech"),
+};
+
 export default function BasqTechPost() {
     return (
 

@@ -5,6 +5,27 @@ import Image from "next/image";
 import TuitFlutter from '../../../../assets/tuit-flutter.png'
 import TuitAsteroid from '../../../../assets/tuit-asteroid.png'
 
+export const metadata = {
+    title: "🧑🏻‍💻 Como conseguí mi primer trabajo",
+    description:
+        "Este artículo es el cuarto de la serie “Mi camino como programador” donde cuento todo lo que pasé (incluyendo enfáticamente los errores) desde mi primera línea de código hasta hoy.",
+    openGraph: {
+        title: "🧑🏻‍💻 Como conseguí mi primer trabajo",
+        description:
+            "Este artículo es el cuarto de la serie “Mi camino como programador” donde cuento todo lo que pasé (incluyendo enfáticamente los errores) desde mi primera línea de código hasta hoy.",
+        url: "https://tomasholtz.com/blog/primer-trabajo",
+        siteName: "Tomas Holtzg's blog",
+        images: [{ url: 'https://res.cloudinary.com/di65i8wd3/image/upload/v1681140818/Blog_Club_App_akscbl.png' }],
+    },
+    twitter: {
+        card: "summary_large_image",
+        site: "https://tomasholtz.com/blog/primer-trabajo",
+        creator: "@tomasholtz_",
+    },
+    metadataBase: new URL("https://tomasholtz.com/blog/primer-trabajo"),
+};
+
+
 export default function PrimerTrabajoPost() {
     return (
 
