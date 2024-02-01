@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@upstash/redis": "^1.28.2",
+    "@vercel/analytics": "^1.1.2",
+    "@vercel/speed-insights": "^1.0.9",
     "comma-number": "^2.1.0",
     "next": "14.1.0",
     "react": "^18",

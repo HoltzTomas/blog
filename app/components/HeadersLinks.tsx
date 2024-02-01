@@ -33,7 +33,7 @@ export function HeaderLinks() {
                 <p className={`text-center text-[20px] font-bold ${NeueMachinaUltraBold.className}`}>TOMAS<br />HOLTZ</p>
             </Link>
             <Link href='/blog' className={`${Ddin.className}`} legacyBehavior>
-                <a href="https://github.com/TomiHoltz/blog" rel="noopener noreferrer" target="_blank" className={`text-[18px] ${isBlogPage && 'underline'}`}>SOURCE</a>
+                <a href="https://github.com/TomiHoltz/blog" rel="noopener noreferrer" target="_blank" className={`text-[18px]`}>SOURCE</a>
             </Link>
             <Link href='/blog' className={`${Ddin.className}`}>
                 <p className={`text-[18px] ${isBlogPage && 'underline'}`}>BLOG</p>
