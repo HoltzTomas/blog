@@ -15,7 +15,7 @@ export const metadata = {
             "Este artículo es el tercero de la serie “Mi camino como programador” donde cuento todo lo que pasé (incluyendo enfáticamente los errores) desde mi primera línea de código hasta hoy.",
         url: "https://tomasholtz.com/blog/cdp-app",
         siteName: "Tomas Holtzg's blog",
-        images: [{ url: 'https://res.cloudinary.com/di65i8wd3/image/upload/v1681140818/Blog_Club_App_akscbl.png' }],
+        images: [{ url: 'https://res.cloudinary.com/di65i8wd3/image/upload/v1683039041/Blog_CDPAPP_flmyou.png' }],
     },
     twitter: {
         card: "summary_large_image",

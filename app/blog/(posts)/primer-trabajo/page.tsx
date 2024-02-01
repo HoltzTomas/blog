@@ -15,7 +15,7 @@ export const metadata = {
             "Este artículo es el cuarto de la serie “Mi camino como programador” donde cuento todo lo que pasé (incluyendo enfáticamente los errores) desde mi primera línea de código hasta hoy.",
         url: "https://tomasholtz.com/blog/primer-trabajo",
         siteName: "Tomas Holtzg's blog",
-        images: [{ url: 'https://res.cloudinary.com/di65i8wd3/image/upload/v1681140818/Blog_Club_App_akscbl.png' }],
+        images: [{ url: 'https://res.cloudinary.com/di65i8wd3/image/upload/v1706021549/Primer_trabajo_ewistw.png' }],
     },
     twitter: {
         card: "summary_large_image",
