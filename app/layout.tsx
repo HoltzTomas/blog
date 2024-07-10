@@ -34,7 +34,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`${inter.className} bg-background max-w-8xl min-h-screen`}>
+      <body className={`${inter.className} bg-background min-h-screen`}>
+        <div></div>
         <Header />
         <main className="p-6 pt-3 md:pt-6 min-h-[85vh]">
           {children}

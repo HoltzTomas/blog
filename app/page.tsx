@@ -4,7 +4,7 @@ import { AvatarLogo } from "./components/AvatarLogo";
 
 export default function Home() {
   return (
-    <div className="overflow-y-scroll px-[16px] md:px-[53px]">
+    <div className="px-[16px] md:px-[53px]">
       <div className="flex flex-col pb-[2rem]">
         <h1 className={`mt-10 md:mt-15 text-center align-center text-[48px] md:text-[5rem] ${NeueMachinaUltraBold.className}`}>TOMAS HOLTZ</h1>
         <div>
