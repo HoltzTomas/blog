@@ -34,10 +34,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`${inter.className} bg-background min-h-screen`}>
-        <div></div>
+      <body className={`${inter.className} flex flex-col items-center bg-background min-h-screen`}>
         <Header />
-        <main className="p-6 pt-3 md:pt-6 min-h-[85vh]">
+        <main className="max-w-8xl flex flex-col  p-6 pt-3 md:pt-6 min-h-[85vh]">
           {children}
         </main>
         <Footer />
