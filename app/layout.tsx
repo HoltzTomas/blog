@@ -10,11 +10,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Tomas Holtz's blog",
   description:
-    "Tomas Holtz is a 20yo software developer from Argentina. He has worked building the frontend of the Fintechs Belo App and Suku World",
+    "Tomas Holtz is a 21yo software developer from Argentina. He has worked building the frontend of the Fintechs Belo App and Suku World",
   openGraph: {
     title: "Tomas Holtzg's blog",
     description:
-      "Tomas Holtz is a 20yo software developer from Argentina. He has worked building the frontend of the Fintechs Belo App and Suku World",
+      "Tomas Holtz is a 21yo software developer from Argentina. He has worked building the frontend of the Fintechs Belo App and Suku World",
     url: "https://tomasholtz.com",
     siteName: "Tomas Holtzg's blog",
   },
