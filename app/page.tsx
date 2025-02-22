@@ -30,26 +30,53 @@ export default function Home() {
       </div>
 
       <div className="flex mt-4 md:hidden justify-center">
-          <iframe
-            src="https://www.youtube.com/embed/RSeqn85Crfo"
-            title="Generando Movimiento"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </div>
+        <iframe
+          src="https://www.youtube.com/embed/RSeqn85Crfo"
+          title="Generando Movimiento"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </div>
 
-        <div className="flex mt-4 hidden md:block">
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/RSeqn85Crfo"
-            title="Generando Movimiento"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </div>
+      <div className="flex mt-4 hidden md:block">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/RSeqn85Crfo"
+          title="Generando Movimiento"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </div>
+
+      <div className={`${NeueMachinaUltraBold.className} mt-10 pb-[10px] text-[16px] flex justify-between items-center`}>
+        <p>CREAMOS una WEB PARA ESTUDIANTES en 3 SEMANAS | Generando Movimiento #2
+        </p>
+      </div>
+
+      <div className="flex mt-4 md:hidden justify-center">
+        <iframe
+          src="https://www.youtube.com/embed/oGrD1A9b8o8"
+          title="Generando Movimiento"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </div>
+
+      <div className="flex mt-4 hidden md:block">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/oGrD1A9b8o8"
+          title="Generando Movimiento"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </div>
     </div>
   );
 }
