@@ -85,7 +85,7 @@ export default function AboutPage() {
                         </div>
 
                         <p>
-                            Nada de lo que pasó en los últimos años lo planeé. Cada proyecto, publicación, evento o lo que sea fue "Generando Movimiento" y haciendo que muchas oportunidades simplemente se me presentaran.
+                            Nada de lo que pasó en los últimos años lo planeé. Cada proyecto, publicación, evento o lo que sea fue &quot;Generando Movimiento&quot; y haciendo que muchas oportunidades simplemente se me presentaran.
                         </p>
 
                         <p>
