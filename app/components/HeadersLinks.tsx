@@ -5,8 +5,6 @@ import { Ddin, NeueMachinaUltraBold } from "./Fonts";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
-import postsData from '../blog/posts.json';
-
 export function HeaderLinks() {
 
     const pathname = usePathname();
@@ -15,11 +13,13 @@ export function HeaderLinks() {
     const isBlogPage = pathname === '/blog';
 
     useEffect(() => {
-        const isPost = postsData.posts.some(post => post.id === pathname.split('/')[2]);
+        // Check if this is a blog post route
+        const slug = pathname.split('/')[2];
+        const isBlogPost = pathname.startsWith('/blog/') && slug;
 
-        if (!isPost) return;
+        if (!isBlogPost) return;
 
-        const url = "/api/view?incr=1&id=" + encodeURIComponent(pathname.split('/')[2]);
+        const url = "/api/view?incr=1&slug=" + encodeURIComponent(slug);
 
         fetch(url)
             .then(res => res.json())
@@ -35,7 +35,7 @@ export function HeaderLinks() {
             <Link href='/about' className={`${Ddin.className}`}>
                 <p className={`text-[18px] ${isAboutPage && 'underline'}`}>¿Quién carajo soy?</p>
             </Link>
-            <Link href='/blog' className={`${Ddin.className}`}>
+            <Link href='/blog' prefetch className={`${Ddin.className}`}>
                 <p className={`text-[18px] ${isBlogPage && 'underline'}`}>BLOG</p>
             </Link>
         </div>

@@ -1,4 +1,4 @@
-import postsData from "./blog/posts.json";
+import { basehub } from "basehub";
 import redis from "./redis";
 import commaNumber from "comma-number";
 
@@ -6,6 +6,11 @@ export type Post = {
   id: string;
   title: string;
   series: string;
+  slug: string;
+  excerpt: string;
+  publishedAt: string;
+  author: string;
+  metaDescription: string;
   views: number;
   viewsFormatted: string;
 };
@@ -17,13 +22,41 @@ type Views = {
 
 export const getPosts = async () => {
   const allViews: null | Views = await redis.hgetall("views");
-  const posts = postsData.posts.map((post): Post => {
-    const views = Number(allViews?.[post.id] ?? 0);
+  
+  // Query posts from BaseHub
+  const data = await basehub({ 
+    draft: false,
+    cache: 'no-store' // Force fresh data for production builds
+  }).query({
+    posts: {
+      items: {
+        _id: true,
+        _title: true,
+        slug: true,
+        excerpt: true,
+        publishedAt: true,
+        author: true,
+        series: true,
+        metaDescription: true,
+      },
+    },
+  });
+
+  const posts = data.posts.items.map((post): Post => {
+    const views = Number(allViews?.[post.slug] ?? 0);
     return {
-      ...post,
+      id: post.slug, // Using slug as ID for compatibility
+      title: post._title,
+      series: post.series || "",
+      slug: post.slug,
+      excerpt: post.excerpt || "",
+      publishedAt: post.publishedAt,
+      author: post.author,
+      metaDescription: post.metaDescription || "",
       views,
       viewsFormatted: commaNumber(views),
     };
   });
+  
   return posts;
 };

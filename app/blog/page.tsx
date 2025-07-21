@@ -28,7 +28,7 @@ export default async function BlogPage() {
                     myPathPosts.map((post: Post) => {
                         return (
                             <div key={post.id} className={`my-[5px] flex justify-between items-center ${NeueMachinaRegular.className}`}>
-                                <Link href={`/blog/${post.id}`} className={`py-[10px] hover:bg-[#eee] active:bg-[#ccc]`}>{post.title}</Link>
+                                <Link href={`/blog/${post.slug}`} prefetch className={`py-[10px] hover:bg-[#eee] active:bg-[#ccc]`}>{post.title}</Link>
                                 <p>{post.viewsFormatted ?? 0}</p>
                             </div>
                         )
@@ -43,7 +43,7 @@ export default async function BlogPage() {
                     devPosts.map((post: Post) => {
                         return (
                             <div key={post.id} className={`my-[5px] flex justify-between items-center ${NeueMachinaRegular.className}`}>
-                                <Link href={`/blog/${post.id}`} className={`py-[10px] hover:bg-[#eee] active:bg-[#ccc]`}>{post.title}</Link>
+                                <Link href={`/blog/${post.slug}`} prefetch className={`py-[10px] hover:bg-[#eee] active:bg-[#ccc]`}>{post.title}</Link>
                                 <p>{post.viewsFormatted}</p>
                             </div>
                         )

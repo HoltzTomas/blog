@@ -45,9 +45,10 @@ strong {
 }
 
 .blog-page p {
-  margin-top: 16px;
-  margin-bottom: 16px;
+  margin-top: 24px;
+  margin-bottom: 24px;
   font-family: 'NeueMachina';
+  line-height: 1.8;
 }
 
 .blog-page h1 {
@@ -64,6 +65,13 @@ strong {
   margin-bottom: 16px;
   font-size: 32px;
   color: black;
+  font-family: 'NeueMachina-UltraBold';
+  line-height: 1.4;
+}
+
+.blog-page a {
+  color: #4770FF;
+  text-decoration: underline;
   font-family: 'NeueMachina-UltraBold';
 }
 
