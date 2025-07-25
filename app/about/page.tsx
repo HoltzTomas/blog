@@ -71,7 +71,11 @@ export default function AboutPage() {
                         </p>
 
                         <p>
-                            Llegamos a 2025 (momento en que escribo esto). Sigo estudiando, jugando en Flow amateur, empecé mi canal de YouTube (les cuento más abajo) y lanzamos <Link href="https://www.note-studio.com/" target="_blank" rel="noopener noreferrer"><span className={`${NeueMachinaUltraBold.className} text-blue`}>Note Studio</span></Link> con dos compañeros de la facultad.
+                            Llegamos a 2025 (momento en que escribo esto). Sigo estudiando, jugando en Flow amateur, empecé mi canal de YouTube (les cuento más abajo) y lanzamos <Link href="https://www.note-studio.com/" target="_blank" rel="noopener noreferrer"><span className={`${NeueMachinaUltraBold.className} text-blue`}>Note Studio</span></Link> con dos compañeros de la facultad, proyecto que se vio olvidado por falta de tiempo.
+                        </p>
+
+                        <p>
+                            El ultimo update, en julio de 2025, es que me sume como fellow a <Link href="https://www.nxtp.vc/" target="_blank" rel="noopener noreferrer"><span className={`${NeueMachinaUltraBold.className} text-blue`}>NXTP Ventures</span></Link> (en mi humilde opinión el mejor fondo early stage de latinoamerica) a dar una mano en diferentes iniciativas mientras sigo mis estudios.
                         </p>
 
                         <p>
