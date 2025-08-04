@@ -85,6 +85,8 @@ export interface Authors {
 export interface AuthorsItem {
     _analyticsKey: Scalars['String']
     _dashboardUrl: Scalars['String']
+    /** Array of search highlight information with field names and HTML markup */
+    _highlight: (SearchHighlight_eb43190a9e9b90126ef1c[] | null)
     _id: Scalars['String']
     _idPath: Scalars['String']
     _slug: Scalars['String']
@@ -312,6 +314,8 @@ export interface Posts {
 export interface PostsItem {
     _analyticsKey: Scalars['String']
     _dashboardUrl: Scalars['String']
+    /** Array of search highlight information with field names and HTML markup */
+    _highlight: (SearchHighlight_ac40ff8bbe0449ba28aa6[] | null)
     _id: Scalars['String']
     _idPath: Scalars['String']
     _slug: Scalars['String']
@@ -339,6 +343,8 @@ export interface Query {
     _agents: _agents
     /** Query across all of the instances of a component. Pass in filters and sorts if you want, and get each instance via the `items` key. */
     _componentInstances: _components
+    /** The diff between the current branch and the head commit. */
+    _diff: Scalars['JSON']
     /** The structure of the repository. Used by START. */
     _structure: Scalars['JSON']
     _sys: RepoSys
@@ -358,6 +364,22 @@ export interface RepoSys {
 }
 
 export type RichTextJson = (BaseRichTextJson | ContentRichText) & { __isUnion?: true }
+
+export interface SearchHighlight_ac40ff8bbe0449ba28aa6 {
+    /** The field/path that was matched (e.g., "title", "body.content") */
+    by: Scalars['String']
+    /** HTML snippet with <mark> tags around the matched terms */
+    snippet: Scalars['String']
+    __typename: 'SearchHighlight_ac40ff8bbe0449ba28aa6'
+}
+
+export interface SearchHighlight_eb43190a9e9b90126ef1c {
+    /** The field/path that was matched (e.g., "title", "body.content") */
+    by: Scalars['String']
+    /** HTML snippet with <mark> tags around the matched terms */
+    snippet: Scalars['String']
+    __typename: 'SearchHighlight_eb43190a9e9b90126ef1c'
+}
 
 export interface TransactionStatus {
     /** Duration in milliseconds. */
@@ -557,6 +579,8 @@ export interface AuthorsItemGenqlSelection{
      */
     scope?: (AnalyticsKeyScope | null)} } | boolean | number
     _dashboardUrl?: boolean | number
+    /** Array of search highlight information with field names and HTML markup */
+    _highlight?: SearchHighlight_eb43190a9e9b90126ef1cGenqlSelection
     _id?: boolean | number
     _idPath?: boolean | number
     _slug?: boolean | number
@@ -572,6 +596,12 @@ export interface AuthorsItemGenqlSelection{
 }
 
 export interface AuthorsItemFilterInput {AND?: (AuthorsItemFilterInput | null),OR?: (AuthorsItemFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),bio?: (StringFilter | null),name?: (StringFilter | null),twitterHandle?: (StringFilter | null),website?: (StringFilter | null)}
+
+export interface AuthorsItemSearchInput {
+/** Searchable fields for query */
+by?: (Scalars['String'][] | null),
+/** Search query */
+q?: (Scalars['String'] | null)}
 
 export interface BaseRichTextJsonGenqlSelection{
     blocks?: boolean | number
@@ -912,6 +942,8 @@ export interface PostsItemGenqlSelection{
      */
     scope?: (AnalyticsKeyScope | null)} } | boolean | number
     _dashboardUrl?: boolean | number
+    /** Array of search highlight information with field names and HTML markup */
+    _highlight?: SearchHighlight_ac40ff8bbe0449ba28aa6GenqlSelection
     _id?: boolean | number
     _idPath?: boolean | number
     _slug?: boolean | number
@@ -933,6 +965,12 @@ export interface PostsItemGenqlSelection{
 
 export interface PostsItemFilterInput {AND?: (PostsItemFilterInput | null),OR?: (PostsItemFilterInput | null),_id?: (StringFilter | null),_slug?: (StringFilter | null),_sys_apiNamePath?: (StringFilter | null),_sys_createdAt?: (DateFilter | null),_sys_hash?: (StringFilter | null),_sys_id?: (StringFilter | null),_sys_idPath?: (StringFilter | null),_sys_lastModifiedAt?: (DateFilter | null),_sys_slug?: (StringFilter | null),_sys_slugPath?: (StringFilter | null),_sys_title?: (StringFilter | null),_title?: (StringFilter | null),author?: (StringFilter | null),excerpt?: (StringFilter | null),metaDescription?: (StringFilter | null),publishedAt?: (DateFilter | null),series?: (StringFilter | null),slug?: (StringFilter | null),title?: (StringFilter | null)}
 
+export interface PostsItemSearchInput {
+/** Searchable fields for query */
+by?: (Scalars['String'][] | null),
+/** Search query */
+q?: (Scalars['String'] | null)}
+
 export interface QueryGenqlSelection{
     _agent?: (_AgentStartGenqlSelection & { __args: {
     /** The ID of the agent. */
@@ -941,6 +979,10 @@ export interface QueryGenqlSelection{
     _agents?: _agentsGenqlSelection
     /** Query across all of the instances of a component. Pass in filters and sorts if you want, and get each instance via the `items` key. */
     _componentInstances?: _componentsGenqlSelection
+    /** The diff between the current branch and the head commit. */
+    _diff?: { __args: {
+    /** Simplified diff returns only the items array showing statuses. */
+    simplified?: (Scalars['Boolean'] | null)} } | boolean | number
     /** The structure of the repository. Used by START. */
     _structure?: { __args: {
     /** The format of the structure. */
@@ -963,6 +1005,8 @@ export interface QueryGenqlSelection{
     first?: (Scalars['Int'] | null), 
     /** Order by a field. */
     orderBy?: (AuthorsItemOrderByEnum | null), 
+    /** Search configuration */
+    search?: (AuthorsItemSearchInput | null), 
     /** Skip the first n items. */
     skip?: (Scalars['Int'] | null)} })
     posts?: (PostsGenqlSelection & { __args?: {
@@ -972,6 +1016,8 @@ export interface QueryGenqlSelection{
     first?: (Scalars['Int'] | null), 
     /** Order by a field. */
     orderBy?: (PostsItemOrderByEnum | null), 
+    /** Search configuration */
+    search?: (PostsItemSearchInput | null), 
     /** Skip the first n items. */
     skip?: (Scalars['Int'] | null)} })
     __typename?: boolean | number
@@ -992,6 +1038,22 @@ export interface RichTextJsonGenqlSelection{
     toc?: boolean | number
     on_BaseRichTextJson?: BaseRichTextJsonGenqlSelection
     on_ContentRichText?: ContentRichTextGenqlSelection
+    __typename?: boolean | number
+}
+
+export interface SearchHighlight_ac40ff8bbe0449ba28aa6GenqlSelection{
+    /** The field/path that was matched (e.g., "title", "body.content") */
+    by?: boolean | number
+    /** HTML snippet with <mark> tags around the matched terms */
+    snippet?: boolean | number
+    __typename?: boolean | number
+}
+
+export interface SearchHighlight_eb43190a9e9b90126ef1cGenqlSelection{
+    /** The field/path that was matched (e.g., "title", "body.content") */
+    by?: boolean | number
+    /** HTML snippet with <mark> tags around the matched terms */
+    snippet?: boolean | number
     __typename?: boolean | number
 }
 
@@ -1131,6 +1193,8 @@ export interface _componentsGenqlSelection{
     first?: (Scalars['Int'] | null), 
     /** Order by a field. */
     orderBy?: (AuthorsItemOrderByEnum | null), 
+    /** Search configuration */
+    search?: (AuthorsItemSearchInput | null), 
     /** Skip the first n items. */
     skip?: (Scalars['Int'] | null)} })
     postsItem?: (postsItem_AsListGenqlSelection & { __args?: {
@@ -1140,6 +1204,8 @@ export interface _componentsGenqlSelection{
     first?: (Scalars['Int'] | null), 
     /** Order by a field. */
     orderBy?: (PostsItemOrderByEnum | null), 
+    /** Search configuration */
+    search?: (PostsItemSearchInput | null), 
     /** Skip the first n items. */
     skip?: (Scalars['Int'] | null)} })
     __typename?: boolean | number
@@ -1295,6 +1361,14 @@ export interface FragmentsMap {
   RichTextJson: {
     root: RichTextJson,
     selection: RichTextJsonGenqlSelection,
+}
+  SearchHighlight_ac40ff8bbe0449ba28aa6: {
+    root: SearchHighlight_ac40ff8bbe0449ba28aa6,
+    selection: SearchHighlight_ac40ff8bbe0449ba28aa6GenqlSelection,
+}
+  SearchHighlight_eb43190a9e9b90126ef1c: {
+    root: SearchHighlight_eb43190a9e9b90126ef1c,
+    selection: SearchHighlight_eb43190a9e9b90126ef1cGenqlSelection,
 }
   TransactionStatus: {
     root: TransactionStatus,

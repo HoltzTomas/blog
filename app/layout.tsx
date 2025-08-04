@@ -34,11 +34,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`${inter.className} flex flex-col items-center bg-background min-h-screen`}>
-        <Header />
-        <main className="max-w-8xl flex flex-col  p-6 pt-3 md:pt-6 min-h-[85vh]">
-          {children}
-        </main>
+      <body className={`${inter.className} flex flex-col items-center bg-background`}>
+        <div className="min-h-screen flex flex-col w-full items-center">
+          <Header />
+          <main className="max-w-8xl items-center justify-center flex flex-col p-6 pt-3 md:pt-6 w-full flex-1">
+            {children}
+          </main>
+        </div>
         <Footer />
         <Analytics />
       </body>
