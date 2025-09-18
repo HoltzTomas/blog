@@ -75,10 +75,6 @@ export default function AboutPage() {
                         </p>
 
                         <p>
-                            El ultimo update, en julio de 2025, es que me sume como fellow a <Link href="https://www.nxtp.vc/" target="_blank" rel="noopener noreferrer"><span className={`${NeueMachinaUltraBold.className} text-blue`}>NXTP Ventures</span></Link> (en mi humilde opinión el mejor fondo early stage de latinoamerica) a dar una mano en diferentes iniciativas mientras sigo mis estudios.
-                        </p>
-
-                        <p>
                             Veremos qué pasa de acá en adelante, pero mientras me divierta va a estar seguir todo bien.
                         </p>
 
