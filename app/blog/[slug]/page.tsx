@@ -38,6 +38,10 @@ async function getPost(slug: string) {
         author: true,
         series: true,
         metaDescription: true,
+        coverImage: {
+          url: true,
+          alt: true,
+        },
       },
     },
   });
@@ -62,11 +66,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: post.metaDescription || post.excerpt || "",
       url: `https://tomasholtz.com/blog/${post.slug}`,
       siteName: "Tomas Holtz's blog",
+      images: post.coverImage?.url ? [{
+        url: post.coverImage.url,
+        alt: post.coverImage.alt || post._title,
+      }] : undefined,
     },
     twitter: {
       card: "summary_large_image",
       site: "https://tomasholtz.com/blog/" + post.slug,
       creator: "@tomasholtz_",
+      images: post.coverImage?.url ? [post.coverImage.url] : undefined,
     },
     metadataBase: new URL(`https://tomasholtz.com/blog/${post.slug}`),
   };

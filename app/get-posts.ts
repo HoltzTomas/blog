@@ -13,6 +13,10 @@ export type Post = {
   metaDescription: string;
   views: number;
   viewsFormatted: string;
+  coverImage?: {
+    url: string;
+    alt: string | null;
+  } | null;
 };
 
 // shape of the HSET in redis
@@ -38,6 +42,10 @@ export const getPosts = async () => {
         author: true,
         series: true,
         metaDescription: true,
+        coverImage: {
+          url: true,
+          alt: true,
+        },
       },
     },
   });
@@ -55,6 +63,7 @@ export const getPosts = async () => {
       metaDescription: post.metaDescription || "",
       views,
       viewsFormatted: commaNumber(views),
+      coverImage: post.coverImage,
     };
   });
   
