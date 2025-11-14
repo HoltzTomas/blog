@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { NeueMachinaRegular, NeueMachinaUltraBold } from "../../components/Fonts";
 import { AvatarLogo } from "../../components/AvatarLogo";
+import { RichTextComponents } from "../../components/RichTextComponents";
 
 export const revalidate = 60;
 
@@ -31,7 +32,9 @@ async function getPost(slug: string) {
         _title: true,
         slug: true,
         content: {
-          html: true,
+          json: {
+            content: true,
+          },
         },
         excerpt: true,
         publishedAt: true,
@@ -103,11 +106,10 @@ export default async function PostPage({ params }: PageProps) {
         </h1>
 
         {/* Content Section */}
-        <div className={`${NeueMachinaRegular.className}`}>
-          <div 
-            dangerouslySetInnerHTML={{ __html: post.content.html }}
-            className="blog-page"
-          />
+        <div className={`${NeueMachinaRegular.className} blog-page`}>
+          <RichText components={RichTextComponents}>
+            {post.content.json.content}
+          </RichText>
         </div>
       </div>
     </main>
