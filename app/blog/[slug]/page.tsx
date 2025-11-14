@@ -64,23 +64,31 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: post._title,
     description: post.metaDescription || post.excerpt || "",
+    metadataBase: new URL('https://tomasholtz.com'),
     openGraph: {
       title: post._title,
       description: post.metaDescription || post.excerpt || "",
       url: `https://tomasholtz.com/blog/${post.slug}`,
       siteName: "Tomas Holtz's blog",
+      type: "article",
       images: post.coverImage?.url ? [{
         url: post.coverImage.url,
+        width: 1200,
+        height: 630,
         alt: post.coverImage.alt || post._title,
       }] : undefined,
     },
     twitter: {
       card: "summary_large_image",
-      site: "https://tomasholtz.com/blog/" + post.slug,
+      site: "@tomasholtz_",
       creator: "@tomasholtz_",
-      images: post.coverImage?.url ? [post.coverImage.url] : undefined,
+      title: post._title,
+      description: post.metaDescription || post.excerpt || "",
+      images: post.coverImage?.url ? [{
+        url: post.coverImage.url,
+        alt: post.coverImage.alt || post._title,
+      }] : undefined,
     },
-    metadataBase: new URL(`https://tomasholtz.com/blog/${post.slug}`),
   };
 }
 
