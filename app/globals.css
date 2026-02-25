@@ -166,3 +166,9 @@ strong {
     @apply bg-background text-foreground;
   }
 }
+
+/* Timeline vertical line animation */
+.timeline-line-fill {
+  transition: transform 0.3s ease-out;
+  transform-origin: top;
+}

@@ -10,6 +10,7 @@ export function HeaderLinks() {
     const pathname = usePathname();
 
     const isAboutPage = pathname === '/about';
+    const isTimelinePage = pathname === '/timeline';
     const isBlogPage = pathname === '/blog';
 
     useEffect(() => {
@@ -34,6 +35,9 @@ export function HeaderLinks() {
             </Link>
             <Link href='/about' className={`${Ddin.className}`}>
                 <p className={`text-[18px] ${isAboutPage && 'underline'}`}>¿Quién carajo soy?</p>
+            </Link>
+            <Link href='/timeline' prefetch className={`${Ddin.className}`}>
+                <p className={`text-[18px] ${isTimelinePage && 'underline'}`}>TIMELINE</p>
             </Link>
             <Link href='/blog' prefetch className={`${Ddin.className}`}>
                 <p className={`text-[18px] ${isBlogPage && 'underline'}`}>BLOG</p>
