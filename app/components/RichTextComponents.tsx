@@ -2,7 +2,7 @@ import { CodeBlock } from '@/components/CodeBlock'
 import { ComponentPropsWithoutRef } from 'react'
 
 export const RichTextComponents = {
-  pre: ({ children, ...props }: ComponentPropsWithoutRef<'pre'>) => {
+  pre: ({ children }: ComponentPropsWithoutRef<'pre'>) => {
     // BaseHub sends children as an array with React elements
     const childArray = Array.isArray(children) ? children : [children]
     const firstChild = childArray[0] as any
@@ -111,6 +111,16 @@ export const RichTextComponents = {
       <strong className="underline" {...props}>
         {children}
       </strong>
+    )
+  },
+  img: ({ src, alt, ...props }: ComponentPropsWithoutRef<'img'>) => {
+    return (
+      <img
+        src={src}
+        alt={alt}
+        className="my-6 mx-auto max-w-sm rounded-lg"
+        {...props}
+      />
     )
   },
 }

@@ -54,11 +54,17 @@ async function getPost(slug: string) {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const post = await getPost(params.slug);
-  
+
   if (!post) {
     return {
       title: "Post not found",
     };
+  }
+
+  // Debug: log cover image URL
+  if (post.coverImage?.url) {
+    console.log('Cover Image URL:', post.coverImage.url);
+    console.log('Is absolute URL:', post.coverImage.url.startsWith('http'));
   }
 
   return {
