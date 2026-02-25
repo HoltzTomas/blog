@@ -39,6 +39,10 @@ export default function AboutPage() {
                         </p>
 
                         <p>
+                        En belo estuve casi dos años; durante un periodo fui el único dev a cargo del frontend de la app. Con más de 100k usuarios activos mensuales y millones de dólares tanto en depósitos como en valor procesado.
+                        </p>
+
+                        <p>
                             En el medio no me privé de seguir haciendo cosas, con un amigo subastamos un <Link href="https://www.infobae.com/economia/2021/10/19/se-subasto-el-nft-del-pronostico-del-influencer-financiero-mas-polemico-de-argentina-cuanto-pagaron/" target="_blank" rel="noopener noreferrer"><span className={`${NeueMachinaUltraBold.className} text-blue`}>NFT con Carlos Maslaton</span>, por el cual terminaríamos en Infobae.</Link>
                         </p>
 
@@ -78,7 +82,7 @@ export default function AboutPage() {
                             Veremos qué pasa de acá en adelante, pero mientras me divierta va a estar seguir todo bien.
                         </p>
 
-                        <div className="text-center" id="generando-movimiento">
+                        {/* <div className="text-center" id="generando-movimiento">
                             <h2 className={`text-3xl font-bold text-blue-500 my-8 ${NeueMachinaUltraBold.className}`}>
                                 [ GENERANDO MOVIMIENTO ]
                             </h2>
@@ -110,7 +114,7 @@ export default function AboutPage() {
 
                         <p>
                             Bienvenidos a mi vida :)
-                        </p>
+                        </p> */}
 
 
                     </div>
