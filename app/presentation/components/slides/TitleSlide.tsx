@@ -1,6 +1,11 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+
+const HeroParticleCanvas = dynamic(() => import("@/app/components/three/HeroParticleCanvas"), {
+  ssr: false,
+});
 
 export function TitleSlide() {
   const [isVisible, setIsVisible] = useState(false);
@@ -12,10 +17,12 @@ export function TitleSlide() {
 
   return (
     <div className="slide slide-title">
-      <div className="slide-title-bg-pattern" aria-hidden="true">
-        {Array.from({ length: 20 }).map((_, i) => (
-          <div key={i} className="pattern-line" style={{ top: `${i * 5}%`, animationDelay: `${i * 0.1}s` }} />
-        ))}
+      <div className="slide-title-canvas" aria-hidden="true">
+        <HeroParticleCanvas />
+      </div>
+
+      <div className="slide-title-author">
+        Tomas Holtz
       </div>
 
       <div className={`slide-title-content ${isVisible ? "visible" : ""}`}>
