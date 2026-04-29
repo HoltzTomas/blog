@@ -29,47 +29,47 @@ export function AboutSlide() {
           <div className="about-stats">
             <div className="about-stat">
               <span className="stat-number">22</span>
-              <span className="stat-label">Years Old</span>
+              <span className="stat-label">Años</span>
             </div>
             <div className="about-stat">
-              <span className="stat-number">4+</span>
-              <span className="stat-label">Years Coding</span>
+              <span className="stat-number">MJ</span>
+              <span className="stat-label">Origen</span>
             </div>
             <div className="about-stat">
-              <span className="stat-number">10+</span>
-              <span className="stat-label">Projects</span>
+              <span className="stat-number">5+</span>
+              <span className="stat-label">Años código</span>
             </div>
           </div>
         </div>
 
         <div className="slide-about-right">
-          <span className="slide-section-tag">Who Am I?</span>
+          <span className="slide-section-tag">Quién carajo soy</span>
 
           <h2 className="slide-about-title">
-            Hey, I&apos;m <span className="accent-text">Tomas</span>
+            Soy <span className="accent-text">Tomas Holtz</span>
           </h2>
 
           <div className="slide-about-text">
             <p>
-              Computer Science student at ITBA, Buenos Aires. I love building
-              things that are both technically solid and genuinely pleasurable to use.
+              Me crié acá en Marcos Juárez. Hice el primario en el Bernardino Rivadavia
+              y el secundario en IMI. Pasé casi todas las tardes de mi adolescencia
+              en el Club Argentino, jugando básquet, tenis y fútbol.
             </p>
             <p>
-              I&apos;ve worked at startups like Belo and Suku, shipping real products
-              that thousands of people use every day.
+              Todos con escaso talento, pueden preguntarle a Lamber si no.
             </p>
           </div>
 
           <div className="about-highlight-box">
             <div className="highlight-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                <path d="M2 17l10 5 10-5" />
-                <path d="M2 12l10 5 10-5" />
+                <path d="M12 20h9" />
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
               </svg>
             </div>
             <div>
-              <strong>My Philosophy:</strong> Great software is where engineering meets design.
+              <strong>Disclaimer:</strong> Critiquen todo lo que voy a decir.
+              Estar en un escenario no me hace tener la verdad.
             </div>
           </div>
         </div>

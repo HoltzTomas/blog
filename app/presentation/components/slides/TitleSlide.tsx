@@ -14,29 +14,29 @@ export function TitleSlide() {
     <div className="slide slide-title">
       <div className="slide-title-bg-pattern" aria-hidden="true">
         {Array.from({ length: 20 }).map((_, i) => (
-          <div key={i} className="pattern-line" style={{ animationDelay: `${i * 0.1}s` }} />
+          <div key={i} className="pattern-line" style={{ top: `${i * 5}%`, animationDelay: `${i * 0.1}s` }} />
         ))}
       </div>
 
       <div className={`slide-title-content ${isVisible ? "visible" : ""}`}>
         <div className="slide-title-eyebrow">
           <span className="eyebrow-line" />
-          <span>High School Tech Talk</span>
+          <span>Marcos Juárez 2026</span>
         </div>
 
         <h1 className="slide-title-heading">
           <span className="title-line">
-            <span>Building</span>
+            <span>Guía para</span>
           </span>
           <span className="title-line accent">
-            <span>The Future</span>
+            <span>crear tu carrera</span>
           </span>
         </h1>
 
         <p className="slide-title-sub">
-          A journey through code, creativity,
+          O por qué el mejor plan de carrera
           <br />
-          and making ideas come to life.
+          es no tener ninguno.
         </p>
 
         <div className="slide-title-cta">
@@ -45,7 +45,7 @@ export function TitleSlide() {
               <path d="M12 5v14M19 12l-7 7-7-7" />
             </svg>
           </span>
-          <span>Press arrow keys to begin</span>
+          <span>Usá las flechas para navegar</span>
         </div>
       </div>
 

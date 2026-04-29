@@ -5,20 +5,22 @@ import { SlideNavigation } from "./components/SlideNavigation";
 import { SlideIndicator } from "./components/SlideIndicator";
 import { TitleSlide } from "./components/slides/TitleSlide";
 import { AboutSlide } from "./components/slides/AboutSlide";
-import { TechStackSlide } from "./components/slides/TechStackSlide";
-import { ProjectsSlide } from "./components/slides/ProjectsSlide";
-import { TimelineSlide } from "./components/slides/TimelineSlide";
-import { InteractiveSlide } from "./components/slides/InteractiveSlide";
-import { ContactSlide } from "./components/slides/ContactSlide";
+import { JourneySlide } from "./components/slides/JourneySlide";
+import { OriginsSlide } from "./components/slides/OriginsSlide";
+import { FailuresSlide } from "./components/slides/FailuresSlide";
+import { BreakthroughSlide } from "./components/slides/BreakthroughSlide";
+import { UnexpectedSlide } from "./components/slides/UnexpectedSlide";
+import { ConclusionsSlide } from "./components/slides/ConclusionsSlide";
 
 const slides = [
   { id: 1, component: TitleSlide, label: "Intro" },
-  { id: 2, component: AboutSlide, label: "About Me" },
-  { id: 3, component: TechStackSlide, label: "Tech Stack" },
-  { id: 4, component: ProjectsSlide, label: "Projects" },
-  { id: 5, component: TimelineSlide, label: "Journey" },
-  { id: 6, component: InteractiveSlide, label: "Interactive" },
-  { id: 7, component: ContactSlide, label: "Connect" },
+  { id: 2, component: AboutSlide, label: "Quién soy" },
+  { id: 3, component: JourneySlide, label: "Trayectoria" },
+  { id: 4, component: OriginsSlide, label: "Raíces" },
+  { id: 5, component: FailuresSlide, label: "Fracasos" },
+  { id: 6, component: BreakthroughSlide, label: "El quiebre" },
+  { id: 7, component: UnexpectedSlide, label: "Lo inesperado" },
+  { id: 8, component: ConclusionsSlide, label: "Conclusiones" },
 ];
 
 export default function PresentationPage() {
@@ -108,7 +110,7 @@ export default function PresentationPage() {
       </div>
 
       <div className="keyboard-hint">
-        <span>Use arrow keys or click to navigate</span>
+        <span>Usá las flechas o hacé click para navegar</span>
       </div>
     </div>
   );
