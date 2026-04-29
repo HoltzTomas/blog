@@ -1,34 +1,22 @@
-import { Inter, Space_Grotesk } from "next/font/google";
-
-import { Analytics } from "./analytics";
-import { Footer } from "./components/Footer";
+import { Inter } from "next/font/google";
 import { Header } from "./components/Header";
-import { InteractiveShell } from "./components/InteractiveShell";
+import { Footer } from "./components/Footer";
+import { Analytics } from "./analytics";
 
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-display",
-  display: "swap",
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Tomas Holtz",
+  title: "Tomas Holtz's blog",
   description:
-    "Tomas Holtz is a software builder from Argentina writing about code, products, side projects, and the strange path of making ideas real.",
+    "Tomas Holtz is a 22yo software developer from Argentina. He has worked building the frontend of the Fintechs Belo App and Suku World",
   openGraph: {
-    title: "Tomas Holtz",
+    title: "Tomas Holtzg's blog",
     description:
-      "Tomas Holtz is a software builder from Argentina writing about code, products, side projects, and the strange path of making ideas real.",
+      "Tomas Holtz is a 22yo software developer from Argentina. He has worked building the frontend of the Fintechs Belo App and Suku World",
     url: "https://tomasholtz.com",
-    siteName: "Tomas Holtz",
+    siteName: "Tomas Holtzg's blog",
   },
   twitter: {
     card: "summary_large_image",
@@ -38,6 +26,7 @@ export const metadata = {
   metadataBase: new URL("https://tomasholtz.com"),
 };
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -45,13 +34,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`${inter.variable} ${spaceGrotesk.variable}`}>
-        <div className="site-root">
+      <body className={`${inter.className} flex flex-col items-center bg-background`}>
+        <div className="min-h-screen flex flex-col w-full items-center">
           <Header />
-          <InteractiveShell />
-          <main className="site-main">{children}</main>
-          <Footer />
+          <main className="max-w-8xl items-center justify-center flex flex-col p-6 pt-3 md:pt-6 w-full flex-1">
+            {children}
+          </main>
         </div>
+        <Footer />
         <Analytics />
       </body>
     </html>

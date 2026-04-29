@@ -22,15 +22,13 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "tailwind-merge": "^3.4.0",
-    "tailwindcss-animate": "^1.0.7",
-    "three": "^0.183.2"
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/comma-number": "^2.1.2",
     "@types/node": "^20.17.16",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
-    "@types/three": "^0.183.1",
     "autoprefixer": "^10.4.20",
     "eslint": "^8.57.1",
     "eslint-config-next": "14.1.0",

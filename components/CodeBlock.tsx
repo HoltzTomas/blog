@@ -1,9 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import { Check, Copy } from 'lucide-react'
-
 import { Button } from '@/components/ui/button'
+import { Check, Copy } from 'lucide-react'
+import { NeueMachinaRegular } from '@/app/components/Fonts'
 
 interface CodeBlockProps {
   code: string
@@ -12,11 +12,11 @@ interface CodeBlockProps {
   showLineNumbers?: boolean
 }
 
-export function CodeBlock({
-  code,
-  language = 'typescript',
+export function CodeBlock({ 
+  code, 
+  language = 'typescript', 
   filename,
-  showLineNumbers = true,
+  showLineNumbers = true 
 }: CodeBlockProps) {
   const [copied, setCopied] = useState(false)
 
@@ -31,32 +31,32 @@ export function CodeBlock({
   const highlightTypescript = (line: string): JSX.Element[] => {
     const elements: JSX.Element[] = []
     let currentIndex = 0
-
+    
     const patterns = [
-      {
-        name: 'comment',
+      { 
+        name: 'comment', 
         regex: /\/\/.*$|\/\*[\s\S]*?\*\//,
-        className: 'text-neutral-500 italic',
+        className: 'text-muted-foreground/70 italic'
       },
-      {
-        name: 'string',
+      { 
+        name: 'string', 
         regex: /(["'`])((?:\\.|(?!\1).)*?)\1/,
-        className: 'text-emerald-500',
+        className: 'text-green-600 dark:text-green-400'
       },
-      {
-        name: 'keyword',
+      { 
+        name: 'keyword', 
         regex: /\b(const|let|var|function|async|await|return|if|else|for|while|import|export|from|interface|type|class|extends|implements|public|private|protected|static|readonly|enum|namespace|as|typeof|instanceof|new|this|super|throw|try|catch|finally|break|continue|switch|case|default|void|null|undefined)\b/,
-        className: 'text-sky-500 font-medium',
+        className: 'text-blue-600 dark:text-blue-400 font-medium'
       },
-      {
-        name: 'function',
+      { 
+        name: 'function', 
         regex: /\b([a-zA-Z_$][\w$]*)\s*(?=\()/,
-        className: 'text-violet-500',
+        className: 'text-purple-600 dark:text-purple-400'
       },
-      {
-        name: 'number',
+      { 
+        name: 'number', 
         regex: /\b(\d+\.?\d*)\b/,
-        className: 'text-amber-500',
+        className: 'text-orange-600 dark:text-orange-400'
       },
     ]
 
@@ -69,8 +69,8 @@ export function CodeBlock({
     }
 
     const tokens: Token[] = []
-
-    patterns.forEach((pattern) => {
+    
+    patterns.forEach(pattern => {
       let match
       const regex = new RegExp(pattern.regex.source, 'g')
       while ((match = regex.exec(line)) !== null) {
@@ -79,7 +79,7 @@ export function CodeBlock({
           value: match[0],
           start: match.index,
           end: match.index + match[0].length,
-          className: pattern.className,
+          className: pattern.className
         })
       }
     })
@@ -88,7 +88,7 @@ export function CodeBlock({
 
     const filteredTokens: Token[] = []
     let lastEnd = 0
-    tokens.forEach((token) => {
+    tokens.forEach(token => {
       if (token.start >= lastEnd) {
         filteredTokens.push(token)
         lastEnd = token.end
@@ -100,16 +100,16 @@ export function CodeBlock({
         elements.push(
           <span key={`text-${idx}`}>
             {line.substring(currentIndex, token.start)}
-          </span>,
+          </span>
         )
       }
-
+      
       elements.push(
         <span key={`token-${idx}`} className={token.className}>
           {token.value}
-        </span>,
+        </span>
       )
-
+      
       currentIndex = token.end
     })
 
@@ -117,7 +117,7 @@ export function CodeBlock({
       elements.push(
         <span key="text-end">
           {line.substring(currentIndex)}
-        </span>,
+        </span>
       )
     }
 
@@ -125,36 +125,46 @@ export function CodeBlock({
   }
 
   return (
-    <div className="relative overflow-hidden rounded-[1.5rem] border border-black/10 bg-[#111111] text-[#f5f4f0] shadow-[0_24px_80px_rgba(10,10,10,0.12)]">
+    <div className="relative rounded-lg border border-border bg-muted/40 overflow-hidden shadow-sm">
       {(filename || language) && (
-        <div className="flex items-center justify-between border-b border-white/10 bg-white/5 px-4 py-3 font-sans">
+        <div className={`flex items-center justify-between px-4 py-2 border-b border-border bg-muted/60 ${NeueMachinaRegular.className}`}>
           <div className="flex items-center gap-2">
-            {filename ? <span className="text-sm font-medium text-white">{filename}</span> : null}
-            {language ? (
-              <span className="text-[11px] uppercase tracking-[0.2em] text-white/50">{language}</span>
-            ) : null}
+            {filename && (
+              <span className={`text-sm text-foreground font-medium ${NeueMachinaRegular.className}`}>
+                {filename}
+              </span>
+            )}
+            {language && (
+              <span className={`text-xs text-muted-foreground uppercase ${NeueMachinaRegular.className}`}>
+                {language}
+              </span>
+            )}
           </div>
           <Button
             variant="ghost"
             size="icon"
-            className="h-8 w-8 rounded-full border border-white/10 text-white hover:bg-white/10"
+            className="h-7 w-7 hover:bg-accent"
             onClick={handleCopy}
           >
-            {copied ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
+            {copied ? (
+              <Check className="h-3.5 w-3.5 text-green-600 dark:text-green-400" />
+            ) : (
+              <Copy className="h-3.5 w-3.5" />
+            )}
           </Button>
         </div>
       )}
 
       <div className="overflow-x-auto">
-        <div className="p-4 font-mono text-sm leading-7">
+        <div className={`p-4 text-sm ${NeueMachinaRegular.className}`}>
           {lines.map((line, index) => (
-            <div key={index} className="group flex gap-4 rounded-xl px-2 transition-colors hover:bg-white/5">
-              {showLineNumbers ? (
-                <span className="w-8 shrink-0 select-none text-right text-white/25">
+            <div key={index} className="flex gap-4 group hover:bg-accent/30 px-2 -mx-2 rounded">
+              {showLineNumbers && (
+                <span className={`select-none text-muted-foreground/40 text-right w-8 shrink-0 ${NeueMachinaRegular.className}`}>
                   {index + 1}
                 </span>
-              ) : null}
-              <pre className="flex-1 whitespace-pre-wrap break-all text-white/90">
+              )}
+              <pre className={`flex-1 whitespace-pre-wrap break-all ${NeueMachinaRegular.className}`}>
                 {line ? highlightTypescript(line) : <span className="opacity-0">.</span>}
               </pre>
             </div>
