@@ -31,7 +31,7 @@ export function TitleSlide() {
             <span>Guía para</span>
           </span>
           <span className="title-line accent">
-            <span>crear tu carrera</span>
+            <span>planear tu carrera</span>
           </span>
         </h1>
 
