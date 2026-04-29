@@ -4,7 +4,6 @@ import { useState, useCallback, useEffect } from "react";
 import { SlideNavigation } from "./components/SlideNavigation";
 import { SlideIndicator } from "./components/SlideIndicator";
 import { TitleSlide } from "./components/slides/TitleSlide";
-import { AboutSlide } from "./components/slides/AboutSlide";
 import { JourneySlide } from "./components/slides/JourneySlide";
 import { OriginsSlide } from "./components/slides/OriginsSlide";
 import { FailuresSlide } from "./components/slides/FailuresSlide";
@@ -14,13 +13,12 @@ import { ConclusionsSlide } from "./components/slides/ConclusionsSlide";
 
 const slides = [
   { id: 1, component: TitleSlide, label: "Intro" },
-  { id: 2, component: AboutSlide, label: "Quién soy" },
-  { id: 3, component: JourneySlide, label: "Trayectoria" },
-  { id: 4, component: OriginsSlide, label: "Raíces" },
-  { id: 5, component: FailuresSlide, label: "Fracasos" },
-  { id: 6, component: BreakthroughSlide, label: "El quiebre" },
-  { id: 7, component: UnexpectedSlide, label: "Lo inesperado" },
-  { id: 8, component: ConclusionsSlide, label: "Conclusiones" },
+  { id: 2, component: JourneySlide, label: "Trayectoria" },
+  { id: 3, component: OriginsSlide, label: "Raíces" },
+  { id: 4, component: FailuresSlide, label: "Fracasos" },
+  { id: 5, component: BreakthroughSlide, label: "El quiebre" },
+  { id: 6, component: UnexpectedSlide, label: "Lo inesperado" },
+  { id: 7, component: ConclusionsSlide, label: "Conclusiones" },
 ];
 
 export default function PresentationPage() {

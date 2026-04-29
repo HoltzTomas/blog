@@ -7,27 +7,22 @@ const conclusions = [
   {
     number: "01",
     title: "La vida es un juego de volumen",
-    subtitle: "Cuanto más intentás, más chances tenés",
+    subtitle: "Actuá, generá info e iterá",
   },
   {
     number: "02",
-    title: "Los contactos son importantes",
-    subtitle: "Pero también es un juego de volumen. Generá relaciones reales, aportá valor. El mejor momento para conocer a alguien es cuando no tenés que pedirle nada.",
-  },
-  {
-    number: "03",
     title: "El miedo y la vergüenza se entrenan",
     subtitle: "Sí, se puede. Como un músculo.",
   },
   {
-    number: "04",
-    title: "Actuá, generá información e iterá",
-    subtitle: "Los planes siempre terminan cambiando.",
-  },
-  {
-    number: "05",
+    number: "03",
     title: "Mantenete ágil y divertite",
     subtitle: "No te tomes todo tan en serio.",
+  },
+  {
+    number: "04",
+    title: "Agency",
+    subtitle: "El término de Silicon Valley que no tiene traducción.",
   },
 ];
 

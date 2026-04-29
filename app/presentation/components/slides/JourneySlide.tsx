@@ -17,7 +17,7 @@ const milestones = [
   },
   {
     year: "2024",
-    title: "Flow Bien Básquetbol",
+    title: "Flow Game Basketball",
     description: "Retomé el básquet de forma extraña: equipo amateur más conocido de habla hispana.",
     highlight: "Jugando con Duki, Alan Gómez, Pepe Sánchez y Facu Campazzo",
   },
