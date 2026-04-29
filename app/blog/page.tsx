@@ -1,102 +1,111 @@
+import Image from "next/image";
 import Link from "next/link";
-import { NeueMachinaRegular, NeueMachinaUltraBold } from "../components/Fonts";
 
-import { Post, getPosts } from "../get-posts";
+import { getPosts } from "../get-posts";
+import { formatDisplayDate, getSeriesMeta, sortByPublishedDate, talks } from "../components/site-data";
 
 export const revalidate = 60;
 
-const talks = [
-    {
-        id: 1,
-        title: "COMO TENER UNA VIDA MUY DIVERTIDA E INTERESANTE | Tomás Holtz - Provocación Live 2025",
-        youtubeUrl: "https://www.youtube.com/watch?v=lqC3jkrk_eE",
-        youtubeId: "lqC3jkrk_eE",
-        description: "Description of your second talk"
-    },
-    {
-        id: 2,
-        title: "Di una CHARLA SOBRE MI VIDA para +600 PERSONAS | Nodo Tech Week 2024",
-        youtubeUrl: "https://www.youtube.com/watch?v=RSeqn85Crfo",
-        youtubeId: "RSeqn85Crfo",
-        description: "Description of your first talk"
-    }
-];
-
 export default async function BlogPage() {
+  const posts = await getPosts();
 
-    const posts = await getPosts();
+  const groupedPosts = sortByPublishedDate(posts).reduce<Record<string, typeof posts>>((groups, post) => {
+    const key = post.series || "notes";
+    groups[key] ??= [];
+    groups[key].push(post);
+    return groups;
+  }, {});
 
-    const myPathPosts = posts.filter(post => post.series === 'mi-camino-como-programador').reverse();
+  const orderedGroups = Object.entries(groupedPosts).sort(([leftKey], [rightKey]) => {
+    return getSeriesMeta(leftKey).order - getSeriesMeta(rightKey).order;
+  });
 
-    const sideProjectsPosts = posts.filter(post => post.series === 'side-projects');
+  return (
+    <div className="page-shell">
+      <section className="blog-header">
+        <h1 className="blog-header-title">Blog</h1>
+        <p className="blog-header-sub">
+          Writing about code, products, failures, side projects, and whatever else seems worth
+          documenting.
+        </p>
+      </section>
 
-    return (
-        <div className="w-full flex flex-col items-center min-h-[85vh] m-auto">
-            <p className={`${NeueMachinaUltraBold.className} text-center text-blue text-[30px] mb-[23.45px]`}>Blog</p>
+      <div className="blog-content">
+        {orderedGroups.map(([series, seriesPosts]) => {
+          const meta = getSeriesMeta(series);
 
-            <div className="flex flex-col max-w-2xl w-full">
-                {/* Side projects */}
-                <div className={`${NeueMachinaUltraBold.className} pb-[10px] text-[16px] flex justify-between items-center`}>
-                    <p>Side projects</p>
-                    <p>Views</p>
+          return (
+            <section key={series} id={series} className="blog-category">
+              <div className="blog-category-title">
+                <span>{meta.label}</span>
+                <span>Views</span>
+              </div>
+
+              <div>
+                {seriesPosts.map((post, index) => (
+                  <Link
+                    key={post.slug}
+                    href={`/blog/${post.slug}`}
+                    className={`blog-post-row reveal-item ${index < 5 ? "" : "is-revealed"}`.trim()}
+                    data-reveal={index < 5 ? "true" : undefined}
+                    data-cursor="hover"
+                    style={{ transitionDelay: `${index * 60}ms` }}
+                  >
+                    <div>
+                      <div className="blog-post-title-wrap">
+                        <span className="blog-post-title">{post.title}</span>
+                      </div>
+                      <div className="blog-post-date">
+                        {formatDisplayDate(post.publishedAt) ?? "Sin fecha"} · {meta.badge}
+                      </div>
+                    </div>
+                    <div className="blog-post-views">{post.viewsFormatted}</div>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          );
+        })}
+      </div>
+
+      <section className="talks-section">
+        <h2 className="talks-title">Talks</h2>
+
+        <div className="talks-grid">
+          {talks.map((talk) => (
+            <a
+              key={talk.id}
+              href={talk.youtubeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="talk-card"
+              data-cursor="hover"
+            >
+              <div className="talk-thumbnail">
+                <Image
+                  src={`https://i.ytimg.com/vi/${talk.youtubeId}/hqdefault.jpg`}
+                  alt={talk.title}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+
+                <div className="talk-play" aria-hidden="true">
+                  <div className="talk-play-btn">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
                 </div>
+              </div>
 
-                {
-                    sideProjectsPosts.map((post: Post) => {
-                        return (
-                            <div key={post.id} className={`my-[5px] flex justify-between items-center ${NeueMachinaRegular.className}`}>
-                                <Link href={`/blog/${post.slug}`} prefetch className={`py-[10px] hover:bg-[#eee] active:bg-[#ccc]`}>{post.title}</Link>
-                                <p>{post.viewsFormatted ?? 0}</p>
-                            </div>
-                        )
-                    })
-                }
-
-                {/* My path */}
-                <div className={`${NeueMachinaUltraBold.className} mt-[20px] pb-[10px] text-[16px] flex justify-between items-center`}>
-                    <p>Mi camino como programador</p>
-                    <p>Views</p>
-                </div>
-
-                {
-                    myPathPosts.map((post: Post) => {
-                        return (
-                            <div key={post.id} className={`my-[5px] flex justify-between items-center ${NeueMachinaRegular.className}`}>
-                                <Link href={`/blog/${post.slug}`} prefetch className={`py-[10px] hover:bg-[#eee] active:bg-[#ccc]`}>{post.title}</Link>
-                                <p>{post.viewsFormatted ?? 0}</p>
-                            </div>
-                        )
-                    })
-                }
-
-                <p className={`${NeueMachinaUltraBold.className} text-center text-blue text-[30px] my-[23.45px]`}>Talks</p>
-
-                {
-                    talks.map((talk) => {
-                        return (
-                            <div key={talk.id} className="mb-10">
-                                <div className={`${NeueMachinaUltraBold.className} pb-[10px] text-[16px] flex justify-between items-center`}>
-                                    <p>{talk.title}</p>
-                                </div>
-
-                                <div className="flex mt-4 justify-center">
-                                    <iframe
-                                        className="w-full max-w-2xl aspect-video"
-                                        src={`https://www.youtube.com/embed/${talk.youtubeId}`}
-                                        title={talk.title}
-                                        frameBorder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowFullScreen
-                                    ></iframe>
-                                </div>
-                            </div>
-                        )
-                    })
-                }
-
-
-            </div>
+              <div className="talk-info">
+                <div className="talk-label">{talk.label}</div>
+                <div className="talk-name">{talk.title}</div>
+              </div>
+            </a>
+          ))}
         </div>
-    );
-
+      </section>
+    </div>
+  );
 }

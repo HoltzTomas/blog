@@ -1,22 +1,34 @@
-import { Inter } from "next/font/google";
-import { Header } from "./components/Header";
-import { Footer } from "./components/Footer";
+import { Inter, Space_Grotesk } from "next/font/google";
+
 import { Analytics } from "./analytics";
+import { Footer } from "./components/Footer";
+import { Header } from "./components/Header";
+import { InteractiveShell } from "./components/InteractiveShell";
 
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+});
 
 export const metadata = {
-  title: "Tomas Holtz's blog",
+  title: "Tomas Holtz",
   description:
-    "Tomas Holtz is a 22yo software developer from Argentina. He has worked building the frontend of the Fintechs Belo App and Suku World",
+    "Tomas Holtz is a software builder from Argentina writing about code, products, side projects, and the strange path of making ideas real.",
   openGraph: {
-    title: "Tomas Holtzg's blog",
+    title: "Tomas Holtz",
     description:
-      "Tomas Holtz is a 22yo software developer from Argentina. He has worked building the frontend of the Fintechs Belo App and Suku World",
+      "Tomas Holtz is a software builder from Argentina writing about code, products, side projects, and the strange path of making ideas real.",
     url: "https://tomasholtz.com",
-    siteName: "Tomas Holtzg's blog",
+    siteName: "Tomas Holtz",
   },
   twitter: {
     card: "summary_large_image",
@@ -26,7 +38,6 @@ export const metadata = {
   metadataBase: new URL("https://tomasholtz.com"),
 };
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -34,14 +45,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`${inter.className} flex flex-col items-center bg-background`}>
-        <div className="min-h-screen flex flex-col w-full items-center">
+      <body className={`${inter.variable} ${spaceGrotesk.variable}`}>
+        <div className="site-root">
           <Header />
-          <main className="max-w-8xl items-center justify-center flex flex-col p-6 pt-3 md:pt-6 w-full flex-1">
-            {children}
-          </main>
+          <InteractiveShell />
+          <main className="site-main">{children}</main>
+          <Footer />
         </div>
-        <Footer />
         <Analytics />
       </body>
     </html>

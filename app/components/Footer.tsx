@@ -1,18 +1,34 @@
-import { Ddin, NeueMachinaUltraBold } from './Fonts'
-import { InstagramLogo, TwitterLogo, GitHubLogo } from './MediaIcons'
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+import { SocialLinks } from "./SocialLinks";
 
 export function Footer() {
+  const pathname = usePathname();
+  const isPostPage = pathname.startsWith("/blog/") && pathname !== "/blog";
 
-    return (
-        <footer className="w-[100%] px-[25px] md:px-[72px] h-[15vh] bg-black justify-between flex items-center ">
-             <p className={`text-center text-white text-[20px] font-bold ${NeueMachinaUltraBold.className}`}>TOMAS<br />HOLTZ</p>
-             <p className={`hidden md:flex text-white ${Ddin.className}`}>DEVELOPED BY TOMAS HOLTZ © DESIGNED BY @MARI.MUSSELLA</p>
-            <div className="flex flex-row">
-                <GitHubLogo color='white' />
-                <TwitterLogo color='white' />
-                <InstagramLogo color='white' />
-            </div>
-        </footer>
-    )
+  return (
+    <footer className="site-footer">
+      <div className="site-footer-inner">
+        <div className="site-footer-left">© 2026 Tomas Holtz. Buenos Aires, AR.</div>
+
+        <div className="site-footer-right">
+          {isPostPage ? (
+            <Link href="/blog" className="footer-link" data-cursor="hover">
+              ← All posts
+            </Link>
+          ) : (
+            <>
+              <SocialLinks variant="text" />
+              <Link href="/blog" className="footer-link" data-cursor="hover">
+                Blog
+              </Link>
+            </>
+          )}
+        </div>
+      </div>
+    </footer>
+  );
 }
-
