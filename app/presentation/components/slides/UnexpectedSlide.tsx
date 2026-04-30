@@ -34,7 +34,7 @@ export function UnexpectedSlide() {
             <div className="path-node">
               <div className="node-dot" />
               <div className="node-content">
-                <span className="node-year">Invité a Mati</span>
+                <span className="node-year">Invité a Josi</span>
                 <p>Para ser parte del podcast</p>
               </div>
             </div>
@@ -55,7 +55,7 @@ export function UnexpectedSlide() {
               <div className="node-dot accent" />
               <div className="node-content">
                 <span className="node-year">Años después</span>
-                <p>Mati me invitó a Flow Bien Básquetbol</p>
+                <p>Mati me invitó a Flow Game Basketball</p>
               </div>
             </div>
           </div>
