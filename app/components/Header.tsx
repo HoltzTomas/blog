@@ -15,6 +15,10 @@ const navItems = [
     href: "/blog",
     label: "Blog",
   },
+  {
+    href: "/presentation",
+    label: "Presentation",
+  },
 ];
 
 export function Header() {
