@@ -99,7 +99,7 @@ export default async function BlogPage() {
         <h2 className="talks-title" style={{ fontFamily: "var(--font-space-grotesk), 'Space Grotesk', sans-serif" }}>
           Talks
         </h2>
-        <div style={{ display: "flex", flexDirection: "column", gap: 40 }}>
+        <div className="talks-grid">
           {talks.map((talk) => (
             <div key={talk.id} className="talk-card">
               <div className="talk-thumbnail">
