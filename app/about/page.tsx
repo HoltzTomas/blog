@@ -1,126 +1,118 @@
 import Link from "next/link"
-import { NeueMachinaRegular, NeueMachinaUltraBold } from "../components/Fonts"
-import { AvatarLogo } from "../components/AvatarLogo"
+import Image from "next/image"
+import { AboutCanvas } from "../components/AboutCanvas"
+import { ExperienceList } from "../components/ExperienceList"
+import { SiteFooter } from "../components/SiteFooter"
 
 export default function AboutPage() {
-    return (
-        <main className="container mx-auto px-4 py-12 max-w-4xl">
-            <div className="space-y-16">
-                {/* Hero Section */}
-                <div className="text-center space-y-4">
-                    <AvatarLogo className="flex justify-center mx-auto" />
-                    <h1 className={`text-6xl font-bold tracking-tighter ${NeueMachinaUltraBold.className}`}>¿Quién carajo soy?</h1>
-                </div>
+  return (
+    <>
+      {/* HERO */}
+      <div className="about-page-hero">
+        <div className="about-page-left">
+          <p className="about-page-eyebrow">01 — Who the hell am I?</p>
+          <h1 className="about-page-title" style={{ fontFamily: "var(--font-space-grotesk), 'Space Grotesk', sans-serif" }}>
+            &iquest;Qui&eacute;n<br />carajo<br /><span className="accent-word">soy?</span>
+          </h1>
+        </div>
+        <div className="about-page-right">
+          <AboutCanvas />
+        </div>
+      </div>
 
-                {/* About Section */}
-                <div className={`space-y-8 ${NeueMachinaRegular.className}`}>
+      {/* BODY */}
+      <div className="about-body">
+        <div className="about-sidebar">
+          <div className="about-sidebar-label">Tomas Holtz</div>
+          <div className="about-sidebar-name" style={{ fontFamily: "var(--font-space-grotesk), 'Space Grotesk', sans-serif" }}>
+            Builder.<br />Student.<br />Curious person.
+          </div>
+          <Image
+            src="/retrato.jpeg"
+            alt="Tomas"
+            width={140}
+            height={140}
+            className="avatar-large"
+          />
+        </div>
 
-                    <div className="space-y-6 text-lg">
-                        <p>
-                            Desde que tengo uso de razón, persigo y dedico todo mi tiempo a las cosas que simplemente me llaman la atención. O cualquier cosa que me ilusione en ese momento.
-                        </p>
+        <div className="about-main">
+          <div className="about-main-text">
+            <p>
+              Desde que tengo uso de raz&oacute;n, persigo y dedico todo mi tiempo a las cosas que simplemente me llaman la atenci&oacute;n. O cualquier cosa que me ilusione en ese momento.
+            </p>
+            <p>
+              Lejos estoy de considerarme una persona brillante. Supongo era tal vez inevitable que despu&eacute;s de a&ntilde;os intentando hacer cosas, alguna que otra funcionase.
+            </p>
+            <p>
+              El{" "}
+              <Link href="/blog">blog</Link>{" "}
+              naci&oacute; para eso, para dar contexto. Me llamaba la atenci&oacute;n como gente en internet pod&iacute;a idealizar a alguien que, en el fondo, no dejaba de ser un tipo normal (e inclusive bastante boludo). As&iacute; que empece a documentar a detalle mis fracasos (el blog fue uno; lo abandon&eacute; por pajero).
+            </p>
+            <p>
+              Aprend&iacute; a programar para crear{" "}
+              <Link href="/blog/basq-tech">Basq Tech</Link>,{" "}
+              <Link href="/blog/club-app">una app para el club de mi barrio</Link>{" "}
+              y <Link href="/blog/cdp-app">CDP APP</Link> (Ninguna funcion&oacute;).
+            </p>
+            <p>
+              Como me di cuenta que me faltaba cancha (capaz emprender sin jam&aacute;s haber siquiera trabajado no era el mejor plan), empec&eacute; a buscar trabajo y termin&eacute; en{" "}
+              <a href="https://www.belo.app/es" target="_blank" rel="noopener noreferrer">Belo</a>{" "}
+              a los 18, estando a&uacute;n en el secundario y con el proyecto recien dando sus primeros pasos en 2021.
+            </p>
+            <p>
+              En belo estuve casi dos a&ntilde;os; durante un periodo fui el &uacute;nico dev a cargo del frontend de la app. Con m&aacute;s de 100k usuarios activos mensuales y millones de d&oacute;lares tanto en dep&oacute;sitos como en valor procesado.
+            </p>
+            <p>
+              En el medio no me priv&eacute; de seguir haciendo cosas, con un amigo subastamos un{" "}
+              <a href="https://www.infobae.com/economia/2021/10/19/se-subasto-el-nft-del-pronostico-del-influencer-financiero-mas-polemico-de-argentina-cuanto-pagaron/" target="_blank" rel="noopener noreferrer">NFT con Carlos Maslaton, por el cual terminar&iacute;amos en Infobae.</a>
+            </p>
+            <p>
+              Termin&eacute; el secundario y en 2022 me fui de la casa de mis viejos. Decid&iacute; no estudiar, seguir trabajando y viajar lo m&aacute;s que pod&iacute;a a Buenos Aires a conocer gente (soy de un pueblo en C&oacute;rdoba).
+            </p>
+            <p>
+              Y tambi&eacute;n en 2022 me asoci&eacute; con{" "}
+              <a href="https://beacons.ai/josihuguet" target="_blank" rel="noopener noreferrer">Josi Huguet</a>{" "}
+              (Founder{" "}
+              <a href="https://hoopshoes.net/" target="_blank" rel="noopener noreferrer">Hoop Shoes</a>) y{" "}
+              <a href="https://www.instagram.com/coco.gbv/" target="_blank" rel="noopener noreferrer">Mat&iacute;as Gallo</a>{" "}
+              (<a href="https://www.instagram.com/flowgamebasketball/" target="_blank" rel="noopener noreferrer">Flow Game Basketball</a>) para crear una plataforma para jugadores de b&aacute;squet, pero el proyecto dur&oacute; un mes porque mi cabeza no toler&oacute; hacer esto mientras trabajaba.
+            </p>
+            <p>
+              En 2023 dej&eacute; de trabajar porque decid&iacute; mudarme a Buenos Aires y estudiar ingenier&iacute;a en ITBA (otro d&iacute;a explico el porqu&eacute;).
+            </p>
+            <p>
+              En 2024 di mi{" "}
+              <a href="https://www.youtube.com/watch?v=RSeqn85Crfo" target="_blank" rel="noopener noreferrer">primer charla</a>, contando sobre mi vida y porque creo que me pasaron tantas cosas extra&ntilde;as a tan corta edad.
+            </p>
+            <p>
+              Autom&aacute;ticamente, despu&eacute;s de la charla, me escribi&oacute; Mat&iacute;as Gallo (nombrado anteriormente) para que formara parte de un equipo de b&aacute;squet amateur que iba a armar con amigos.
+            </p>
+            <p>
+              Argument&oacute; que quer&iacute;a empoderar el deporte amateur en Argentina, y que iba a documentar todo.
+            </p>
+            <p>
+              Tres meses despu&eacute;s, ya ten&iacute;amos 2 millones de visualizaciones en redes y gente como{" "}
+              <a href="https://www.youtube.com/watch?v=whh2weRUdYs" target="_blank" rel="noopener noreferrer">Pepe S&aacute;nchez</a>{" "}
+              y{" "}
+              <a href="https://www.youtube.com/watch?v=jpQXqAjhdbo" target="_blank" rel="noopener noreferrer">Duki</a>{" "}
+              jugaron con nosotros.
+            </p>
+            <p>
+              Llegamos a 2025 (momento en que escribo esto). Sigo estudiando, jugando en Flow amateur, empec&eacute; mi canal de YouTube (les cuento m&aacute;s abajo) y lanzamos{" "}
+              <a href="https://www.note-studio.com/" target="_blank" rel="noopener noreferrer">Note Studio</a>{" "}
+              con dos compa&ntilde;eros de la facultad, proyecto que se vio olvidado por falta de tiempo.
+            </p>
+            <p>
+              Veremos qu&eacute; pasa de ac&aacute; en adelante, pero mientras me divierta va a estar seguir todo bien.
+            </p>
+          </div>
 
-                        <p>
-                            Lejos estoy de considerarme una persona brillante. Supongo era tal vez inevitable que después de años intentando hacer cosas, alguna que otra funcionase.
-                        </p>
+          <ExperienceList />
+        </div>
+      </div>
 
-                        <p>
-                            El <Link href="/blog" prefetch><span className={`${NeueMachinaUltraBold.className} text-blue`}>blog</span></Link> nació para eso, para dar contexto. Me llamaba la atención como gente en internet podía idealizar a alguien que, en el fondo, no dejaba de ser un tipo normal (e inclusive bastante boludo). Así que empece a documentar a detalle mis fracasos (el blog fue uno; lo abandoné por pajero).
-                        </p>
-
-                        <p>
-                            Aprendí a programar para crear <Link href="/blog/basq-tech" prefetch><span className={`${NeueMachinaUltraBold.className} text-blue`}>Basq Tech</span></Link>
-                            , <Link href="/blog/club-app" prefetch><span className={`${NeueMachinaUltraBold.className} text-blue`}>una app para el club de mi barrio </span></Link>
-                            y <Link href="/blog/cdp-app" prefetch><span className={`${NeueMachinaUltraBold.className} text-blue`}>CDP APP</span></Link> (Ninguna funcionó).
-                        </p>
-
-                        <p>
-                            Como me di cuenta que me faltaba cancha (capaz emprender sin jamás haber siquiera trabajado no era el mejor plan), empecé a buscar trabajo y terminé en <Link href="https://www.belo.app/es" target="_blank" rel="noopener noreferrer"><span className={`${NeueMachinaUltraBold.className} text-blue`}>Belo</span></Link> a los 18, estando aún en el secundario y con el proyecto recien dando sus primeros pasos en 2021.
-                        </p>
-
-                        <p>
-                        En belo estuve casi dos años; durante un periodo fui el único dev a cargo del frontend de la app. Con más de 100k usuarios activos mensuales y millones de dólares tanto en depósitos como en valor procesado.
-                        </p>
-
-                        <p>
-                            En el medio no me privé de seguir haciendo cosas, con un amigo subastamos un <Link href="https://www.infobae.com/economia/2021/10/19/se-subasto-el-nft-del-pronostico-del-influencer-financiero-mas-polemico-de-argentina-cuanto-pagaron/" target="_blank" rel="noopener noreferrer"><span className={`${NeueMachinaUltraBold.className} text-blue`}>NFT con Carlos Maslaton</span>, por el cual terminaríamos en Infobae.</Link>
-                        </p>
-
-                        <p>
-                            Terminé el secundario y en 2022 me fui de la casa de mis viejos. Decidí no estudiar, seguir trabajando y viajar lo más que podía a Buenos Aires a conocer gente (soy de un pueblo en Córdoba).
-                        </p>
-
-                        <p>
-                            Y también en 2022 me asocié con <Link href="https://beacons.ai/josihuguet" target="_blank" rel="noopener noreferrer"><span className={`${NeueMachinaUltraBold.className} text-blue`}>Josi Huguet</span></Link> (Founder <Link href="https://hoopshoes.net/" target="_blank" rel="noopener noreferrer"><span className={`${NeueMachinaUltraBold.className} text-blue`}>Hoop Shoes</span></Link>) y <Link href="https://www.instagram.com/coco.gbv/" target="_blank" rel="noopener noreferrer"><span className={`${NeueMachinaUltraBold.className} text-blue`}>Matías Gallo</span></Link> (<Link href="https://www.instagram.com/flowgamebasketball/" target="_blank" rel="noopener noreferrer"><span className={`${NeueMachinaUltraBold.className} text-blue`}>Flow Game Basketball</span></Link>) para crear una plataforma para jugadores de básquet, pero el proyecto duró un mes porque mi cabeza no toleró hacer esto mientras trabajaba.
-                        </p>
-
-                        <p>
-                            En 2023 dejé de trabajar porque decidí mudarme a Buenos Aires y estudiar ingeniería en ITBA (otro día explico el porqué).
-                        </p>
-
-                        <p>
-                            En 2024 di mi <Link href="https://www.youtube.com/watch?v=RSeqn85Crfo" target="_blank" rel="noopener noreferrer"><span className={`${NeueMachinaUltraBold.className} text-blue`}>primer charla</span></Link>, contando sobre mi vida y porque creo que me pasaron tantas cosas extrañas a tan corta edad.
-                        </p>
-
-                        <p>
-                            Automáticamente, después de la charla, me escribió Matías Gallo (nombrado anteriormente) para que formara parte de un equipo de básquet amateur que iba a armar con amigos.
-                        </p>
-
-                        <p>
-                            Argumentó que quería empoderar el deporte amateur en Argentina, y que iba a documentar todo.
-                        </p>
-
-                        <p>
-                            Tres meses después, ya teníamos 2 millones de visualizaciones en redes y gente como <Link href="https://www.youtube.com/watch?v=whh2weRUdYs" target="_blank" rel="noopener noreferrer"><span className={`${NeueMachinaUltraBold.className} text-blue`}>Pepe Sánchez</span></Link> y <Link href="https://www.youtube.com/watch?v=jpQXqAjhdbo" target="_blank" rel="noopener noreferrer"><span className={`${NeueMachinaUltraBold.className} text-blue`}>Duki</span></Link> jugaron con nosotros.
-                        </p>
-
-                        <p>
-                            Llegamos a 2025 (momento en que escribo esto). Sigo estudiando, jugando en Flow amateur, empecé mi canal de YouTube (les cuento más abajo) y lanzamos <Link href="https://www.note-studio.com/" target="_blank" rel="noopener noreferrer"><span className={`${NeueMachinaUltraBold.className} text-blue`}>Note Studio</span></Link> con dos compañeros de la facultad, proyecto que se vio olvidado por falta de tiempo.
-                        </p>
-
-                        <p>
-                            Veremos qué pasa de acá en adelante, pero mientras me divierta va a estar seguir todo bien.
-                        </p>
-
-                        {/* <div className="text-center" id="generando-movimiento">
-                            <h2 className={`text-3xl font-bold text-blue-500 my-8 ${NeueMachinaUltraBold.className}`}>
-                                [ GENERANDO MOVIMIENTO ]
-                            </h2>
-                        </div>
-
-                        <p>
-                            Nada de lo que pasó en los últimos años lo planeé. Cada proyecto, publicación, evento o lo que sea fue &quot;Generando Movimiento&quot; y haciendo que muchas oportunidades simplemente se me presentaran.
-                        </p>
-
-                        <p>
-                            Si no hubiese tenido el sueño de jugar al básquet (no lo logré), no hubiese empezado a programar para crear Basq Tech, supongo.
-                        </p>
-
-                        <p>
-                            Si no hubiese intentado Basq Tech, no hubiese conocido a Josi (ni tampoco a Mati) ni hubiese trabajado en Belo.
-                        </p>
-
-                        <p>
-                            Y así se dan decenas de ejemplos en mi vida en los últimos años.
-                        </p>
-
-                        <p>
-                            Siguiendo el patrón de seguir lo que sea que me genere ilusión o interés (me gustaba la idea de ser youtuber), decidí empezar una serie llamada <Link href="https://www.youtube.com/@holtztomas" target="_blank" rel="noopener noreferrer"><span className={`${NeueMachinaUltraBold.className} text-blue`}>Generando Movimiento</span></Link>.
-                        </p>
-
-                        <p>
-                            O sea, digamos, es una excusa conceptual al no saber bien qué subir. Voy a documentar momentos de mi vida que quiera inmortalizar y compartir; con el tiempo veremos hacia dónde vamos.
-                        </p>
-
-                        <p>
-                            Bienvenidos a mi vida :)
-                        </p> */}
-
-
-                    </div>
-                </div>
-
-            </div>
-        </main>
-    )
+      <SiteFooter />
+    </>
+  )
 }

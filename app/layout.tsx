@@ -1,22 +1,27 @@
-import { Inter } from "next/font/google";
-import { Header } from "./components/Header";
-import { Footer } from "./components/Footer";
-import { Analytics } from "./analytics";
+import { Inter, Space_Grotesk } from "next/font/google"
+import { Navbar } from "./components/Navbar"
+import { CustomCursor } from "./components/CustomCursor"
+import { Analytics } from "./analytics"
 
-import "./globals.css";
+import "./globals.css"
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] })
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  weight: ["400", "500", "600", "700"],
+})
 
 export const metadata = {
-  title: "Tomas Holtz's blog",
+  title: "Tomas Holtz",
   description:
     "Tomas Holtz is a 22yo software developer from Argentina. He has worked building the frontend of the Fintechs Belo App and Suku World",
   openGraph: {
-    title: "Tomas Holtzg's blog",
+    title: "Tomas Holtz",
     description:
       "Tomas Holtz is a 22yo software developer from Argentina. He has worked building the frontend of the Fintechs Belo App and Suku World",
     url: "https://tomasholtz.com",
-    siteName: "Tomas Holtzg's blog",
+    siteName: "Tomas Holtz",
   },
   twitter: {
     card: "summary_large_image",
@@ -24,26 +29,21 @@ export const metadata = {
     creator: "@tomasholtz_",
   },
   metadataBase: new URL("https://tomasholtz.com"),
-};
-
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="es">
-      <body className={`${inter.className} flex flex-col items-center bg-background`}>
-        <div className="min-h-screen flex flex-col w-full items-center">
-          <Header />
-          <main className="max-w-8xl items-center justify-center flex flex-col p-6 pt-3 md:pt-6 w-full flex-1">
-            {children}
-          </main>
-        </div>
-        <Footer />
+      <body className={`${inter.className} ${spaceGrotesk.variable}`}>
+        <CustomCursor />
+        <Navbar />
+        {children}
         <Analytics />
       </body>
     </html>
-  );
+  )
 }
