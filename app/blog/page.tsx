@@ -1,102 +1,127 @@
-import Link from "next/link";
-import { NeueMachinaRegular, NeueMachinaUltraBold } from "../components/Fonts";
+import Link from "next/link"
+import { Post, getPosts } from "../get-posts"
+import { SiteFooter } from "../components/SiteFooter"
 
-import { Post, getPosts } from "../get-posts";
-
-export const revalidate = 60;
+export const revalidate = 60
 
 const talks = [
-    {
-        id: 1,
-        title: "COMO TENER UNA VIDA MUY DIVERTIDA E INTERESANTE | Tomás Holtz - Provocación Live 2025",
-        youtubeUrl: "https://www.youtube.com/watch?v=lqC3jkrk_eE",
-        youtubeId: "lqC3jkrk_eE",
-        description: "Description of your second talk"
-    },
-    {
-        id: 2,
-        title: "Di una CHARLA SOBRE MI VIDA para +600 PERSONAS | Nodo Tech Week 2024",
-        youtubeUrl: "https://www.youtube.com/watch?v=RSeqn85Crfo",
-        youtubeId: "RSeqn85Crfo",
-        description: "Description of your first talk"
-    }
-];
+  {
+    id: 1,
+    title: "COMO TENER UNA VIDA MUY DIVERTIDA E INTERESANTE | Tom\u00e1s Holtz",
+    label: "Provocaci\u00f3n Live 2025",
+    youtubeId: "lqC3jkrk_eE",
+  },
+  {
+    id: 2,
+    title: "Di una CHARLA SOBRE MI VIDA para +600 PERSONAS | Nodo Tech Week 2024",
+    label: "Nodo Tech Week 2024",
+    youtubeId: "RSeqn85Crfo",
+  },
+]
+
+function getPostEmoji(title: string): string {
+  const lower = title.toLowerCase()
+  if (lower.includes("video") || lower.includes("ai")) return "\uD83E\uDD16"
+  if (lower.includes("note studio")) return "\uD83D\uDCDD"
+  if (lower.includes("belo")) return "\uD83C\uDFE6"
+  if (lower.includes("primer trabajo") || lower.includes("trabajo")) return "\uD83D\uDCBC"
+  if (lower.includes("cdp") || lower.includes("agtech")) return "\uD83C\uDF3E"
+  if (lower.includes("club") || lower.includes("barrio")) return "\u26BD"
+  if (lower.includes("basq")) return "\uD83D\uDCA1"
+  return "\uD83D\uDCC4"
+}
 
 export default async function BlogPage() {
+  const posts = await getPosts()
 
-    const posts = await getPosts();
+  const myPathPosts = posts.filter((post) => post.series === "mi-camino-como-programador").reverse()
+  const sideProjectsPosts = posts.filter((post) => post.series === "side-projects")
 
-    const myPathPosts = posts.filter(post => post.series === 'mi-camino-como-programador').reverse();
+  return (
+    <>
+      {/* HEADER */}
+      <div className="blog-header" style={{ fontFamily: "var(--font-space-grotesk), 'Space Grotesk', sans-serif" }}>
+        <h1 className="blog-header-title">Blog</h1>
+        <p className="blog-header-sub">
+          Writing about code, products, failures, and whatever else seems interesting.
+        </p>
+      </div>
 
-    const sideProjectsPosts = posts.filter(post => post.series === 'side-projects');
-
-    return (
-        <div className="w-full flex flex-col items-center min-h-[85vh] m-auto">
-            <p className={`${NeueMachinaUltraBold.className} text-center text-blue text-[30px] mb-[23.45px]`}>Blog</p>
-
-            <div className="flex flex-col max-w-2xl w-full">
-                {/* Side projects */}
-                <div className={`${NeueMachinaUltraBold.className} pb-[10px] text-[16px] flex justify-between items-center`}>
-                    <p>Side projects</p>
-                    <p>Views</p>
-                </div>
-
-                {
-                    sideProjectsPosts.map((post: Post) => {
-                        return (
-                            <div key={post.id} className={`my-[5px] flex justify-between items-center ${NeueMachinaRegular.className}`}>
-                                <Link href={`/blog/${post.slug}`} prefetch className={`py-[10px] hover:bg-[#eee] active:bg-[#ccc]`}>{post.title}</Link>
-                                <p>{post.viewsFormatted ?? 0}</p>
-                            </div>
-                        )
-                    })
-                }
-
-                {/* My path */}
-                <div className={`${NeueMachinaUltraBold.className} mt-[20px] pb-[10px] text-[16px] flex justify-between items-center`}>
-                    <p>Mi camino como programador</p>
-                    <p>Views</p>
-                </div>
-
-                {
-                    myPathPosts.map((post: Post) => {
-                        return (
-                            <div key={post.id} className={`my-[5px] flex justify-between items-center ${NeueMachinaRegular.className}`}>
-                                <Link href={`/blog/${post.slug}`} prefetch className={`py-[10px] hover:bg-[#eee] active:bg-[#ccc]`}>{post.title}</Link>
-                                <p>{post.viewsFormatted ?? 0}</p>
-                            </div>
-                        )
-                    })
-                }
-
-                <p className={`${NeueMachinaUltraBold.className} text-center text-blue text-[30px] my-[23.45px]`}>Talks</p>
-
-                {
-                    talks.map((talk) => {
-                        return (
-                            <div key={talk.id} className="mb-10">
-                                <div className={`${NeueMachinaUltraBold.className} pb-[10px] text-[16px] flex justify-between items-center`}>
-                                    <p>{talk.title}</p>
-                                </div>
-
-                                <div className="flex mt-4 justify-center">
-                                    <iframe
-                                        className="w-full max-w-2xl aspect-video"
-                                        src={`https://www.youtube.com/embed/${talk.youtubeId}`}
-                                        title={talk.title}
-                                        frameBorder="0"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowFullScreen
-                                    ></iframe>
-                                </div>
-                            </div>
-                        )
-                    })
-                }
-
-
-            </div>
+      {/* POSTS */}
+      <div className="blog-content">
+        {/* Side Projects */}
+        <div className="blog-category">
+          <div className="blog-category-title">
+            <span>Side Projects</span>
+            <span>Views</span>
+          </div>
+          {sideProjectsPosts.map((post: Post) => (
+            <Link
+              key={post.id}
+              href={`/blog/${post.slug}`}
+              className="blog-post-row"
+              prefetch
+            >
+              <div style={{ fontFamily: "var(--font-space-grotesk), 'Space Grotesk', sans-serif" }}>
+                <span className="blog-post-emoji">{getPostEmoji(post.title)}</span>
+                <span className="blog-post-title">{post.title}</span>
+              </div>
+              <div className="blog-post-views">{post.viewsFormatted ?? "0"}</div>
+            </Link>
+          ))}
         </div>
-    );
 
+        {/* Mi camino como programador */}
+        <div className="blog-category">
+          <div className="blog-category-title">
+            <span>Mi camino como programador</span>
+            <span>Views</span>
+          </div>
+          {myPathPosts.map((post: Post) => (
+            <Link
+              key={post.id}
+              href={`/blog/${post.slug}`}
+              className="blog-post-row"
+              prefetch
+            >
+              <div style={{ fontFamily: "var(--font-space-grotesk), 'Space Grotesk', sans-serif" }}>
+                <span className="blog-post-emoji">{getPostEmoji(post.title)}</span>
+                <span className="blog-post-title">{post.title}</span>
+              </div>
+              <div className="blog-post-views">{post.viewsFormatted ?? "0"}</div>
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      {/* TALKS */}
+      <div className="talks-section">
+        <h2 className="talks-title" style={{ fontFamily: "var(--font-space-grotesk), 'Space Grotesk', sans-serif" }}>
+          Talks
+        </h2>
+        <div style={{ display: "flex", flexDirection: "column", gap: 40 }}>
+          {talks.map((talk) => (
+            <div key={talk.id} className="talk-card">
+              <div className="talk-thumbnail">
+                <iframe
+                  src={`https://www.youtube.com/embed/${talk.youtubeId}`}
+                  title={talk.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+              <div className="talk-info">
+                <div className="talk-label">{talk.label}</div>
+                <div className="talk-name" style={{ fontFamily: "var(--font-space-grotesk), 'Space Grotesk', sans-serif" }}>
+                  {talk.title}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <SiteFooter />
+    </>
+  )
 }
