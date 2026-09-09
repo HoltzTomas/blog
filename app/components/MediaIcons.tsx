@@ -10,7 +10,7 @@ export const GitHubLogo: FC<Properties> = ({ color = 'black' }) => {
     const secondColor = color === 'black' ? 'white' : 'black';
 
     return (
-        <a href="http://github.com/tomiholtz" rel="noopener noreferrer" target="_blank">
+        <a href="http://github.com/HoltzTomas" rel="noopener noreferrer" target="_blank">
             <div style={{ marginLeft: '5px', marginRight: '5px' }}>
                 <svg width="29" height="27" viewBox="0 0 29 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clipPath="url(#clip0_26_127)">
